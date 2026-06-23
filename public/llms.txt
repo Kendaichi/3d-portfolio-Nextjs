@@ -1,0 +1,34 @@
+# Franclloyd D. Dagdag — Full-Stack Web Developer
+
+> Portfolio of Franclloyd D. Dagdag, a full-stack web developer from the Philippines
+> specializing in scalable system architecture, complex problem solving, and precision
+> engineering. Builds end-to-end products across React, Next.js, Node.js, Python, and
+> Laravel, with a focus on performance, maintainability, and clean system design.
+
+Franclloyd has shipped government-scale platforms (Internal Audit Management System,
+Procurement Management System, blockchain-backed financial audit) and rebuilt client
+web presences for speed and SEO. B.S. Information Technology, Caraga State University
+(magna cum laude, 2023).
+
+## Pages
+
+- [Home / Portfolio](https://www.daggerbuilds.com/): Overview, skills, experience, featured projects, and contact.
+- [Blog — Case Studies](https://www.daggerbuilds.com/blog): Index of in-depth case studies on real client work.
+- [Acro Refrigeration Case Study](https://www.daggerbuilds.com/blog/acro-refrigeration): Migrating a 50+ year Australian refrigeration company from a slow WordPress site to a Next.js + Supabase platform with a custom CMS — 100+ blog posts migrated, ~10x faster load times, and zero SEO regression.
+
+## Skills
+
+- Frontend: React, Next.js, shadcn/ui, Tailwind CSS, Flutter
+- Backend: Node.js, Python, Laravel
+- Data: PostgreSQL, MySQL, Firebase, Supabase
+- Other: Web3, Docker, WordPress, SEO
+
+## Contact
+
+- Email: franclloyd.dagdag@daggerbuilds.com
+- GitHub: https://github.com/Kendaichi
+- LinkedIn: https://ph.linkedin.com/in/franclloyd-dagdag
+
+## Optional
+
+- [Sitemap](https://www.daggerbuilds.com/sitemap.xml): Machine-readable list of all indexable pages.
