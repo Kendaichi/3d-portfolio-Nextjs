@@ -599,7 +599,7 @@ export default function RobotParticleBackground({
           r,
           g,
           b,
-          powerTimer: Math.floor(Math.random() * 1800),
+          powerTimer: Math.floor(Math.random() * 250),
           startupPhase: "dormant" as const,
           startupFlickerTimer: Math.floor(Math.random() * 80 + 60),
           eyeScale: 0,
