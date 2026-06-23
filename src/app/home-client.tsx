@@ -1,26 +1,15 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+import { useRef, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
+import CubeCanvas from "@/components/CubeCanvas";
 import HeroSection from "@/components/HeroSection";
 import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
 import CustomCursor from "@/components/CustomCursor";
+import RobotParticleBackground from "@/components/RobotParticleBackground";
 import TiltCard from "@/components/TiltCard";
-
-// Heavy, continuously-animating components are split out of the initial bundle
-// and mounted only after the page is interactive. This keeps three.js and the
-// canvas rAF loops off the critical path so they don't block FCP/LCP or spike
-// Total Blocking Time on load.
-const CubeCanvas = dynamic(() => import("@/components/CubeCanvas"), {
-  ssr: false,
-});
-const RobotParticleBackground = dynamic(
-  () => import("@/components/RobotParticleBackground"),
-  { ssr: false }
-);
 import {
   Code2,
   Database,
@@ -107,23 +96,6 @@ const fadeUpItem: Variants = {
 export default function HomeClient() {
   const scrollProgress = useRef(0);
   const mouseRef = useRef({ x: 0, y: 0 });
-  // Gate the heavy 3D/canvas work until the browser is idle after first paint.
-  const [showVisuals, setShowVisuals] = useState(false);
-
-  useEffect(() => {
-    const win = window as Window & {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-    const schedule = win.requestIdleCallback
-      ? win.requestIdleCallback(() => setShowVisuals(true), { timeout: 2000 })
-      : window.setTimeout(() => setShowVisuals(true), 300);
-    return () => {
-      if (win.cancelIdleCallback && win.requestIdleCallback)
-        win.cancelIdleCallback(schedule);
-      else clearTimeout(schedule);
-    };
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -149,15 +121,13 @@ export default function HomeClient() {
   return (
     <div className="relative bg-background text-foreground">
       <CustomCursor />
-      {showVisuals && (
-        <RobotParticleBackground
-          scrollProgress={scrollProgress}
-          mouseRef={mouseRef}
-        />
-      )}
+      <RobotParticleBackground
+        scrollProgress={scrollProgress}
+        mouseRef={mouseRef}
+      />
 
       {/* Dark overlay between robot and cube */}
-      <div className="fixed inset-0 z-[7] pointer-events-none bg-black/10" />
+      <div className="fixed inset-0 z-[7] pointer-events-none bg-black/25" />
 
       {/* Fixed 3D Canvas */}
       <div className="fixed inset-0 z-[10] flex items-center justify-center pointer-events-none sm:justify-end">
@@ -165,9 +135,7 @@ export default function HomeClient() {
             the audience robots (top) and the podium robots (bottom).
             sm+: full-height panel on the right, same as before. */}
         <div className="w-4/5 aspect-square sm:w-1/2 sm:aspect-auto sm:h-full">
-          {showVisuals && (
-            <CubeCanvas scrollProgress={scrollProgress} mouseRef={mouseRef} />
-          )}
+          <CubeCanvas scrollProgress={scrollProgress} mouseRef={mouseRef} />
         </div>
       </div>
 

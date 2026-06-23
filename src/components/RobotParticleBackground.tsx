@@ -180,7 +180,7 @@ function drawPlatform(
   const platTop = hh;
 
   const [ar, ag, ab] = PODIUM_ACCENT[podiumRank];
-  const depth = Math.min(0.95, 0.22 + robot.scale * 0.2);
+  const depth = Math.min(0.8, 0.12 + robot.scale * 0.16);
   const alpha = depth * bodyScale;
 
   ctx.save();
@@ -275,7 +275,7 @@ function drawRobot(
   const lookX = robot.currLookX * (headFlip ? -1 : 1);
   const lookY = robot.currLookY;
 
-  const depth = Math.min(0.95, 0.22 + robot.scale * 0.2);
+  const depth = Math.min(0.8, 0.12 + robot.scale * 0.16);
   const headAlpha = depth * bodyScale;
   const bodyAlpha = headAlpha * 0.18;
 
@@ -599,11 +599,9 @@ export default function RobotParticleBackground({
           r,
           g,
           b,
-          // Stagger window before each robot powers on. Frame-counted, so it's
-          // tuned for the 30fps cap — lower = robots appear sooner / tighter.
-          powerTimer: Math.floor(Math.random() * 250),
+          powerTimer: Math.floor(Math.random() * 1800),
           startupPhase: "dormant" as const,
-          startupFlickerTimer: Math.floor(Math.random() * 40 + 25),
+          startupFlickerTimer: Math.floor(Math.random() * 80 + 60),
           eyeScale: 0,
           bodyScale: 0,
           flickerOpacity: 1,
@@ -620,12 +618,8 @@ export default function RobotParticleBackground({
     );
 
     let rafId: number;
-    // Cap the canvas to ~30fps. This animation is decorative, so halving the
-    // frame rate roughly halves its main-thread cost with no perceptible loss.
-    const FRAME_INTERVAL = 1000 / 30;
-    let lastFrame = 0;
 
-    const renderFrame = () => {
+    const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
       const deviceScale = getDeviceScale(width);
@@ -764,18 +758,11 @@ export default function RobotParticleBackground({
         ctx.fillStyle = `rgba(255,255,255,${p.opacity})`;
         ctx.fill();
       }
+
+      rafId = requestAnimationFrame(draw);
     };
 
-    const loop = (now: number) => {
-      rafId = requestAnimationFrame(loop);
-      // Skip work while the tab is hidden, or throttle to the target interval.
-      if (document.hidden) return;
-      if (now - lastFrame < FRAME_INTERVAL) return;
-      lastFrame = now;
-      renderFrame();
-    };
-
-    rafId = requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(draw);
 
     const onResize = () => {
       width = window.innerWidth;

@@ -268,8 +268,10 @@ function CubeInner({ scrollProgress, mouseRef }: CubeInnerProps) {
             <RoundedBox
               args={[CUBIE_SIZE, CUBIE_SIZE, CUBIE_SIZE]}
               radius={0.08}
-              smoothness={2}
+              smoothness={3}
               material={bodyMat}
+              castShadow
+              receiveShadow
             />
             {stickers
               .filter((s) => s.show)
@@ -297,29 +299,23 @@ export default function CubeCanvas({
   scrollProgress: MutableRefObject<number>;
   mouseRef: MutableRefObject<{ x: number; y: number }>;
 }) {
-  // Mobile gets cheaper GL settings: no MSAA and a lower pixel-ratio ceiling.
-  // Shadows are disabled everywhere — they were the single most expensive
-  // per-frame cost and barely visible on this dark, low-contrast cube.
-  const isMobile =
-    typeof window !== "undefined" &&
-    window.matchMedia("(max-width: 640px)").matches;
-
   return (
     <Canvas
       camera={{ position: [0, 0, 7.5], fov: 40 }}
-      gl={{
-        alpha: true,
-        antialias: !isMobile,
-        powerPreference: "high-performance",
-      }}
-      shadows={false}
+      gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
       style={{ background: "transparent" }}
       onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
-      dpr={isMobile ? [1, 1.5] : [1, 2]}
+      dpr={[1, 2]}
     >
       <CameraController />
       <ambientLight intensity={0.5} />
-      <directionalLight position={[6, 8, 5]} intensity={1.2} />
+      <directionalLight
+        position={[6, 8, 5]}
+        intensity={1.2}
+        castShadow
+        shadow-mapSize-width={512}
+        shadow-mapSize-height={512}
+      />
       <directionalLight position={[-4, 3, -3]} intensity={0.4} />
       <directionalLight position={[0, -5, 3]} intensity={0.2} />
       <pointLight position={[0, 0, 6]} intensity={0.3} />
