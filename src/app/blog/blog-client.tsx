@@ -21,9 +21,22 @@ const BLOG_POSTS = [
     title: "Acro Refrigeration",
     subtitle: "From WordPress Bottleneck to a Lightning-Fast, SEO-Optimized Platform",
     date: "2026",
+    type: "Case Study",
+    cta: "Read Case Study",
     tags: ["Next.js", "Supabase", "Vercel", "CMS", "SEO"],
     preview:
       "How I rebuilt an Australian refrigeration company's entire web presence — migrating 100+ blog posts, building a custom CMS, and boosting page speed by 10x.",
+  },
+  {
+    slug: "wordpress-vs-hardcoded",
+    title: "WordPress vs. Hardcoded",
+    subtitle: "The Long-Run Edge of Custom Code Over WordPress",
+    date: "2026",
+    type: "Insight",
+    cta: "Read the Breakdown",
+    tags: ["WordPress", "Custom Code", "Performance", "SEO", "Field Notes"],
+    preview:
+      "WordPress wins the first week; a hardcoded site wins the next five years. Where custom-coded sites gain their edge — and how WordPress quietly becomes a disadvantage over the long run.",
   },
 ];
 
@@ -93,7 +106,7 @@ export default function BlogClient() {
                     <div className="flex items-center gap-3 text-xs font-mono text-muted-foreground">
                       <span>{post.date}</span>
                       <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                      <span>Case Study</span>
+                      <span>{post.type}</span>
                     </div>
                     <h2 className="text-2xl sm:text-3xl font-bold tracking-tight group-hover:text-foreground/90 transition-colors">
                       {post.title}
@@ -115,7 +128,7 @@ export default function BlogClient() {
                       ))}
                     </div>
                     <p className="text-sm font-medium text-foreground/70 group-hover:text-foreground transition-colors pt-2">
-                      Read Case Study →
+                      {post.cta} →
                     </p>
                   </div>
                 </div>

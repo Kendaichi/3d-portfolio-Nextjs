@@ -15,6 +15,7 @@ web presences for speed and SEO. B.S. Information Technology, Caraga State Unive
 - [Home / Portfolio](https://www.daggerbuilds.com/): Overview, skills, experience, featured projects, and contact.
 - [Blog — Case Studies](https://www.daggerbuilds.com/blog): Index of in-depth case studies on real client work.
 - [Acro Refrigeration Case Study](https://www.daggerbuilds.com/blog/acro-refrigeration): Migrating a 50+ year Australian refrigeration company from a slow WordPress site to a Next.js + Supabase platform with a custom CMS — 100+ blog posts migrated, ~10x faster load times, and zero SEO regression.
+- [WordPress vs. Hardcoded](https://www.daggerbuilds.com/blog/wordpress-vs-hardcoded): A field-notes breakdown contrasting WordPress with hand-built, hardcoded websites — where custom code gains its edge in speed, security, SEO, and ownership, and how WordPress becomes a disadvantage over the long run.
 
 ## Skills
 

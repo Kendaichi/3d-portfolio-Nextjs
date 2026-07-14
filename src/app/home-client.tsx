@@ -296,7 +296,7 @@ export default function HomeClient() {
           </motion.div>
         </Section>
 
-        <Section id="case-studies" title="Case Studies" subtitle="05">
+        <Section id="case-studies" title="Case Studies & Insights" subtitle="05">
           <motion.div
             className="space-y-4"
             variants={staggerContainer}
@@ -309,7 +309,7 @@ export default function HomeClient() {
               className="text-muted-foreground leading-relaxed mb-6"
             >
               Real projects, real problems, real results — deep dives into how I
-              approach client work from start to finish.
+              approach client work, plus field notes on how I build.
             </motion.p>
 
             <motion.div variants={fadeUpItem}>
@@ -352,6 +352,50 @@ export default function HomeClient() {
                     </div>
                     <p className="text-sm font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors pt-1">
                       Read Case Study →
+                    </p>
+                  </div>
+                </TiltCard>
+              </Link>
+            </motion.div>
+
+            <motion.div variants={fadeUpItem}>
+              <Link href="/blog/wordpress-vs-hardcoded">
+                <TiltCard className="rounded-xl bg-card/60 border border-border/30 overflow-hidden hover:border-border/60 transition-colors group">
+                  <div className="p-6 sm:p-8 space-y-4">
+                    <div className="flex items-center gap-3 text-xs font-mono text-muted-foreground">
+                      <span>Insight</span>
+                      <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+                      <span>Web Architecture</span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight group-hover:text-foreground/90 transition-colors">
+                      WordPress vs. Hardcoded
+                    </h3>
+                    <p className="text-sm text-muted-foreground/80">
+                      The Long-Run Edge of Custom Code Over WordPress
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      WordPress wins the first week; a hardcoded site wins the
+                      next five years. Where custom code gains its edge — and how
+                      WordPress quietly becomes a disadvantage over the long run.
+                    </p>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {[
+                        "WordPress",
+                        "Custom Code",
+                        "Performance",
+                        "SEO",
+                        "Field Notes",
+                      ].map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 text-xs font-mono rounded bg-accent/50 text-muted-foreground"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-sm font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors pt-1">
+                      Read the Breakdown →
                     </p>
                   </div>
                 </TiltCard>
