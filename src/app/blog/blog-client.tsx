@@ -17,6 +17,18 @@ const fadeUp: Variants = {
 
 const BLOG_POSTS = [
   {
+    slug: "acro-refrigeration-90-days",
+    title: "Acro Refrigeration — 90 Days Later",
+    subtitle:
+      "The Receipts: Traffic Doubled, Rankings Climbing, AI Assistants Discovering the Site",
+    date: "2026",
+    type: "Results",
+    cta: "See the Numbers",
+    tags: ["Next.js", "SEO", "Core Web Vitals", "Analytics", "Results"],
+    preview:
+      "Ninety days after the Acro rebuild: visitors up 110%, 91.5K Google search impressions, a 95 PageSpeed score that held, and chatgpt.com now in the referrer list. The receipts, in real numbers.",
+  },
+  {
     slug: "hvacr-group",
     title: "One Client, Four Websites",
     subtitle: "How the Acro Rebuild Became a Whole Brand Family",
