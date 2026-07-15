@@ -17,6 +17,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
+import Lightbox from "@/components/Lightbox";
 
 const solutionImg = "/assets/acro/new-website.webp";
 const challengeimg = "/assets/acro/old-website.webp";
@@ -89,6 +90,8 @@ function ScrapbookImage({
   rotate?: "left" | "right" | "none";
   tapePosition?: "top" | "corner";
 }) {
+  const [zoomed, setZoomed] = useState(false);
+
   const rotateClass =
     rotate === "left"
       ? "-rotate-[2deg]"
@@ -116,8 +119,17 @@ function ScrapbookImage({
           <img
             src={src}
             alt={alt}
-            className="w-full h-auto rounded-sm"
+            className="w-full h-auto rounded-sm cursor-zoom-in"
             loading="lazy"
+            role="button"
+            tabIndex={0}
+            onClick={() => setZoomed(true)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setZoomed(true);
+              }
+            }}
           />
         ) : (
           <div className="w-full aspect-video bg-accent/30 rounded-sm flex items-center justify-center border border-dashed border-border/40">
@@ -132,6 +144,15 @@ function ScrapbookImage({
           </p>
         )}
       </div>
+
+      {src && (
+        <Lightbox
+          open={zoomed}
+          src={src}
+          alt={alt}
+          onClose={() => setZoomed(false)}
+        />
+      )}
     </div>
   );
 }
