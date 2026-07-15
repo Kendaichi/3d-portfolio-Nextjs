@@ -313,6 +313,51 @@ export default function HomeClient() {
             </motion.p>
 
             <motion.div variants={fadeUpItem}>
+              <Link href="/blog/hvacr-group">
+                <TiltCard className="rounded-xl bg-card/60 border border-border/30 overflow-hidden hover:border-border/60 transition-colors group">
+                  <div className="p-6 sm:p-8 space-y-4">
+                    <div className="flex items-center gap-3 text-xs font-mono text-muted-foreground">
+                      <span>Repeat Client</span>
+                      <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+                      <span>Australia</span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight group-hover:text-foreground/90 transition-colors">
+                      One Client, Four Websites
+                    </h3>
+                    <p className="text-sm text-muted-foreground/80">
+                      How the Acro Rebuild Became a Whole Brand Family
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      After the Acro Refrigeration rebuild, HVACR Group came
+                      back for three more brands — Shelair, HVACR Group, and
+                      Koolacube. One proven stack, four sites, every one scoring
+                      90+ performance and 100 SEO.
+                    </p>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {[
+                        "Next.js",
+                        "Supabase",
+                        "Vercel",
+                        "Repeat Client",
+                        "SEO",
+                      ].map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 text-xs font-mono rounded bg-accent/50 text-muted-foreground"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-sm font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors pt-1">
+                      Read Case Study →
+                    </p>
+                  </div>
+                </TiltCard>
+              </Link>
+            </motion.div>
+
+            <motion.div variants={fadeUpItem}>
               <Link href="/blog/acro-refrigeration">
                 <TiltCard className="rounded-xl bg-card/60 border border-border/30 overflow-hidden hover:border-border/60 transition-colors group">
                   <div className="p-6 sm:p-8 space-y-4">

@@ -17,6 +17,17 @@ const fadeUp: Variants = {
 
 const BLOG_POSTS = [
   {
+    slug: "hvacr-group",
+    title: "One Client, Four Websites",
+    subtitle: "How the Acro Rebuild Became a Whole Brand Family",
+    date: "2026",
+    type: "Case Study",
+    cta: "Read Case Study",
+    tags: ["Next.js", "Supabase", "Vercel", "Repeat Client", "SEO"],
+    preview:
+      "After the Acro Refrigeration rebuild, HVACR Group came back for three more brands — Shelair, HVACR Group, and Koolacube. One proven stack, four sites, every one scoring 90+ performance and 100 SEO.",
+  },
+  {
     slug: "acro-refrigeration",
     title: "Acro Refrigeration",
     subtitle: "From WordPress Bottleneck to a Lightning-Fast, SEO-Optimized Platform",
