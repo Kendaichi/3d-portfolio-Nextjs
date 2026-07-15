@@ -22,6 +22,8 @@ import {
   XCircle,
   Lightbulb,
   Clock,
+  Receipt,
+  Wallet,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 
@@ -145,6 +147,32 @@ function VersusRow({
         <p className="text-sm text-muted-foreground leading-relaxed">{code}</p>
       </div>
     </motion.div>
+  );
+}
+
+/* ── receipt line item ──────────────────────────────────────── */
+
+function CostLine({
+  label,
+  price,
+  free = false,
+}: {
+  label: string;
+  price: string;
+  free?: boolean;
+}) {
+  return (
+    <div className="flex items-baseline gap-2 py-1.5">
+      <span className="text-sm text-muted-foreground">{label}</span>
+      <span className="flex-1 -translate-y-[3px] border-b border-dotted border-border/40" />
+      <span
+        className={`text-sm font-mono shrink-0 ${
+          free ? "text-green-400/70" : "text-foreground/70"
+        }`}
+      >
+        {price}
+      </span>
+    </div>
   );
 }
 
@@ -571,7 +599,7 @@ export default function WpVsHardcodedClient() {
         </div>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            SECTION 4: HEAD-TO-HEAD
+            SECTION 4: FOLLOW THE MONEY
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="container max-w-4xl py-20 lg:py-28">
           <motion.div
@@ -582,7 +610,196 @@ export default function WpVsHardcodedClient() {
           >
             <motion.div variants={fadeUp} className="mb-12">
               <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-2">
-                04 — Side by Side
+                04 — Follow the Money
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+                The Subscription Bill Nobody Mentions
+              </h2>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              className="space-y-5 text-muted-foreground leading-relaxed max-w-2xl mb-12"
+            >
+              <p className="text-lg text-foreground/90">
+                WordPress is free to install — that's the part everyone repeats.
+                The part they skip is that a production-ready business site
+                almost never runs on the free version alone.
+              </p>
+              <p>
+                To make it fast, secure, and genuinely functional, you rent a
+                stack of premium plugins and managed hosting — and you keep
+                paying, every single year. Here's a realistic annual bill, line
+                by line, against the same site built by hand.
+              </p>
+            </motion.div>
+
+            {/* Two receipts, side by side */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* WordPress receipt */}
+              <motion.div
+                variants={tiltLeft}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="bg-card/60 border border-red-500/20 rounded-lg p-6 shadow-lg shadow-black/10"
+              >
+                <div className="flex items-center gap-3 mb-4 pb-4 border-b border-border/20">
+                  <div className="w-10 h-10 rounded-full border border-red-500/20 bg-red-500/[0.05] flex items-center justify-center shrink-0">
+                    <Receipt className="h-5 w-5 text-red-400/60" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">The WordPress Bill</h3>
+                    <p className="text-xs text-muted-foreground">
+                      A typical business-site stack
+                    </p>
+                  </div>
+                </div>
+
+                <CostLine
+                  label="Managed hosting (WP Engine / Kinsta)"
+                  price="~$300/yr"
+                />
+                <CostLine label="Page builder (Elementor Pro)" price="~$59/yr" />
+                <CostLine label="SEO (Yoast Premium)" price="~$99/yr" />
+                <CostLine label="Forms (WPForms Pro)" price="~$100/yr" />
+                <CostLine
+                  label="Security (Wordfence Premium)"
+                  price="~$119/yr"
+                />
+                <CostLine
+                  label="Backups (UpdraftPlus Premium)"
+                  price="~$70/yr"
+                />
+                <CostLine label="Caching (WP Rocket)" price="~$59/yr" />
+
+                <div className="flex items-baseline justify-between gap-3 mt-4 pt-4 border-t border-border/30">
+                  <span className="text-sm font-semibold text-foreground/80">
+                    Every year, forever
+                  </span>
+                  <span className="text-xl font-bold font-mono text-red-400/80">
+                    ≈ $800
+                  </span>
+                </div>
+              </motion.div>
+
+              {/* Hardcoded receipt */}
+              <motion.div
+                variants={tiltRight}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="bg-card/60 border border-green-500/20 rounded-lg p-6 shadow-lg shadow-black/10"
+              >
+                <div className="flex items-center gap-3 mb-4 pb-4 border-b border-border/20">
+                  <div className="w-10 h-10 rounded-full border border-green-500/20 bg-green-500/[0.05] flex items-center justify-center shrink-0">
+                    <Wallet className="h-5 w-5 text-green-400/70" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">The Hardcoded Bill</h3>
+                    <p className="text-xs text-muted-foreground">
+                      The same site, modern stack
+                    </p>
+                  </div>
+                </div>
+
+                <CostLine
+                  label="Framework (Next.js, open source)"
+                  price="$0"
+                  free
+                />
+                <CostLine
+                  label="Hosting + CDN (Vercel / Cloudflare)"
+                  price="$0"
+                  free
+                />
+                <CostLine label="SSL certificate (auto-issued)" price="$0" free />
+                <CostLine label="SEO (built into the code)" price="$0" free />
+                <CostLine label="Forms (serverless / EmailJS)" price="$0" free />
+                <CostLine
+                  label="Security (no plugins to license)"
+                  price="$0"
+                  free
+                />
+                <CostLine label="Backups (it all lives in Git)" price="$0" free />
+
+                <div className="flex items-baseline justify-between gap-3 mt-4 pt-4 border-t border-border/30">
+                  <span className="text-sm font-semibold text-foreground/80">
+                    On generous free tiers
+                  </span>
+                  <span className="text-xl font-bold font-mono text-green-400/80">
+                    $0
+                  </span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Savings highlight */}
+            <motion.div
+              variants={popIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="mt-8 text-center"
+            >
+              <p className="text-sm text-muted-foreground">
+                That's roughly{" "}
+                <span className="text-foreground font-semibold">
+                  $800–$1,500 saved every year
+                </span>{" "}
+                — and across a five-year life, the gap runs into thousands.
+              </p>
+            </motion.div>
+
+            {/* Honest note */}
+            <motion.div
+              variants={tiltLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="max-w-xl mx-auto mt-10"
+            >
+              <StickyNote color="yellow" rotate={-1.5}>
+                <div className="flex items-start gap-3">
+                  <Lightbulb className="h-5 w-5 text-yellow-400/60 mt-0.5 shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground/80 mb-1">
+                      Keeping it honest
+                    </p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Free tiers aren't infinite — Vercel's Hobby plan is
+                      non-commercial, and a high-traffic site eventually moves to
+                      a paid plan (often ~$20/mo). But that's paying for scale,
+                      not for basic features. With a hardcoded site,
+                      functionality is a one-time build cost; with WordPress,
+                      it's rent you pay forever. (A domain, ~$15/yr, is the one
+                      line both sides share.)
+                    </p>
+                  </div>
+                </div>
+              </StickyNote>
+            </motion.div>
+          </motion.div>
+        </section>
+
+        {/* ── Divider ── */}
+        <div className="container max-w-4xl">
+          <div className="h-px bg-border/20" />
+        </div>
+
+        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            SECTION 5: HEAD-TO-HEAD
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <section className="container max-w-4xl py-20 lg:py-28">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            <motion.div variants={fadeUp} className="mb-12">
+              <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-2">
+                05 — Side by Side
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
                 Head-to-Head
@@ -662,7 +879,7 @@ export default function WpVsHardcodedClient() {
         </div>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            SECTION 5: THE VERDICT
+            SECTION 6: THE VERDICT
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="container max-w-4xl py-20 lg:py-28">
           <motion.div
@@ -673,7 +890,7 @@ export default function WpVsHardcodedClient() {
           >
             <motion.div variants={fadeUp} className="mb-12">
               <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-2">
-                05 — So Which Should You Build?
+                06 — So Which Should You Build?
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
                 It's About the Time Horizon
