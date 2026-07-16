@@ -20,6 +20,8 @@ export interface BlogPost {
   /** ISO date `YYYY-MM-DD`. Drives ordering; the card renders the year. */
   date: string;
   type: PostType;
+  /** Featured on the homepage's writing section + pinned on the blog index board. */
+  featured?: boolean;
   cta: string;
   tags: string[];
   preview: string;
@@ -50,6 +52,7 @@ const posts: BlogPost[] = [
   },
   {
     slug: "acro-refrigeration-90-days",
+    featured: true,
     title: "Acro Refrigeration — 90 Days Later",
     subtitle:
       "The Receipts: Traffic Doubled, Rankings Climbing, AI Assistants Discovering the Site",
@@ -62,6 +65,7 @@ const posts: BlogPost[] = [
   },
   {
     slug: "hvacr-group",
+    featured: true,
     title: "One Client, Four Websites",
     subtitle: "How the Acro Rebuild Became a Whole Brand Family",
     date: "2026-05-20",
@@ -85,6 +89,7 @@ const posts: BlogPost[] = [
   },
   {
     slug: "wordpress-vs-hardcoded",
+    featured: true,
     title: "WordPress vs. Hardcoded",
     subtitle: "The Long-Run Edge of Custom Code Over WordPress",
     date: "2026-03-15",

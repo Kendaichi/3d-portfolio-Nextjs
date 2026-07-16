@@ -10,6 +10,7 @@ import ContactForm from "@/components/ContactForm";
 import CustomCursor from "@/components/CustomCursor";
 import RobotParticleBackground from "@/components/RobotParticleBackground";
 import TiltCard from "@/components/TiltCard";
+import { BLOG_POSTS } from "@/lib/posts";
 import {
   Code2,
   Database,
@@ -22,6 +23,15 @@ import {
 const projectBlockchain = "/assets/project-blockchain.webp";
 const projectProcurement = "/assets/project-procurement.webp";
 const projectInternalAudit = "/assets/project-internal-audit.webp";
+
+// Homepage-only eyebrow labels for featured cards. Everything else (title,
+// subtitle, excerpt, tags, CTA) comes from the registry via `post.featured`.
+// Add a slug here when you feature a new post; it falls back to the post type.
+const FEATURED_META: Record<string, { label: string; context: string }> = {
+  "hvacr-group": { label: "Repeat Client", context: "Australia" },
+  "acro-refrigeration-90-days": { label: "Results", context: "Australia" },
+  "wordpress-vs-hardcoded": { label: "Insight", context: "Web Architecture" },
+};
 
 const SKILLS = [
   {
@@ -312,140 +322,50 @@ export default function HomeClient() {
               approach client work, plus field notes on how I build.
             </motion.p>
 
-            <motion.div variants={fadeUpItem}>
-              <Link href="/blog/hvacr-group">
-                <TiltCard className="rounded-xl bg-card/60 border border-border/30 overflow-hidden hover:border-border/60 transition-colors group">
-                  <div className="p-6 sm:p-8 space-y-4">
-                    <div className="flex items-center gap-3 text-xs font-mono text-muted-foreground">
-                      <span>Repeat Client</span>
-                      <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                      <span>Australia</span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight group-hover:text-foreground/90 transition-colors">
-                      One Client, Four Websites
-                    </h3>
-                    <p className="text-sm text-muted-foreground/80">
-                      How the Acro Rebuild Became a Whole Brand Family
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      After the Acro Refrigeration rebuild, HVACR Group came
-                      back for three more brands — Shelair, HVACR Group, and
-                      Koolacube. One proven stack, four sites, every one scoring
-                      90+ performance and 100 SEO.
-                    </p>
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {[
-                        "Next.js",
-                        "Supabase",
-                        "Vercel",
-                        "Repeat Client",
-                        "SEO",
-                      ].map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-0.5 text-xs font-mono rounded bg-accent/50 text-muted-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="text-sm font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors pt-1">
-                      Read Case Study →
-                    </p>
-                  </div>
-                </TiltCard>
-              </Link>
-            </motion.div>
-
-            <motion.div variants={fadeUpItem}>
-              <Link href="/blog/acro-refrigeration-90-days">
-                <TiltCard className="rounded-xl bg-card/60 border border-border/30 overflow-hidden hover:border-border/60 transition-colors group">
-                  <div className="p-6 sm:p-8 space-y-4">
-                    <div className="flex items-center gap-3 text-xs font-mono text-muted-foreground">
-                      <span>Results</span>
-                      <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                      <span>Australia</span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight group-hover:text-foreground/90 transition-colors">
-                      Acro Refrigeration — 90 Days Later
-                    </h3>
-                    <p className="text-sm text-muted-foreground/80">
-                      The Receipts: Traffic Doubled, Rankings Climbing, AI
-                      Assistants Discovering the Site
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Ninety days after the Acro rebuild: visitors up 110%, 91.5K
-                      Google search impressions, a 95 PageSpeed score that held,
-                      and chatgpt.com now in the referrer list. The receipts, in
-                      real numbers.
-                    </p>
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {[
-                        "Next.js",
-                        "SEO",
-                        "Core Web Vitals",
-                        "Analytics",
-                        "Results",
-                      ].map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-0.5 text-xs font-mono rounded bg-accent/50 text-muted-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="text-sm font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors pt-1">
-                      See the Numbers →
-                    </p>
-                  </div>
-                </TiltCard>
-              </Link>
-            </motion.div>
-
-            <motion.div variants={fadeUpItem}>
-              <Link href="/blog/wordpress-vs-hardcoded">
-                <TiltCard className="rounded-xl bg-card/60 border border-border/30 overflow-hidden hover:border-border/60 transition-colors group">
-                  <div className="p-6 sm:p-8 space-y-4">
-                    <div className="flex items-center gap-3 text-xs font-mono text-muted-foreground">
-                      <span>Insight</span>
-                      <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                      <span>Web Architecture</span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight group-hover:text-foreground/90 transition-colors">
-                      WordPress vs. Hardcoded
-                    </h3>
-                    <p className="text-sm text-muted-foreground/80">
-                      The Long-Run Edge of Custom Code Over WordPress
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      WordPress wins the first week; a hardcoded site wins the
-                      next five years. Where custom code gains its edge — and how
-                      WordPress quietly becomes a disadvantage over the long run.
-                    </p>
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {[
-                        "WordPress",
-                        "Custom Code",
-                        "Performance",
-                        "SEO",
-                        "Field Notes",
-                      ].map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-0.5 text-xs font-mono rounded bg-accent/50 text-muted-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="text-sm font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors pt-1">
-                      Read the Breakdown →
-                    </p>
-                  </div>
-                </TiltCard>
-              </Link>
-            </motion.div>
+            {BLOG_POSTS.filter((post) => post.featured).map((post) => {
+              const meta = FEATURED_META[post.slug];
+              return (
+                <motion.div key={post.slug} variants={fadeUpItem}>
+                  <Link href={`/blog/${post.slug}`}>
+                    <TiltCard className="rounded-xl bg-card/60 border border-border/30 overflow-hidden hover:border-border/60 transition-colors group">
+                      <div className="p-6 sm:p-8 space-y-4">
+                        <div className="flex items-center gap-3 text-xs font-mono text-muted-foreground">
+                          <span>{meta?.label ?? post.type}</span>
+                          {meta?.context && (
+                            <>
+                              <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+                              <span>{meta.context}</span>
+                            </>
+                          )}
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-bold tracking-tight group-hover:text-foreground/90 transition-colors">
+                          {post.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground/80">
+                          {post.subtitle}
+                        </p>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {post.preview}
+                        </p>
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {post.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-2 py-0.5 text-xs font-mono rounded bg-accent/50 text-muted-foreground"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <p className="text-sm font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors pt-1">
+                          {post.cta} →
+                        </p>
+                      </div>
+                    </TiltCard>
+                  </Link>
+                </motion.div>
+              );
+            })}
 
             <motion.div
               variants={fadeUpItem}
