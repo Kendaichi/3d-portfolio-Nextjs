@@ -358,34 +358,34 @@ export default function HomeClient() {
             </motion.div>
 
             <motion.div variants={fadeUpItem}>
-              <Link href="/blog/acro-refrigeration">
+              <Link href="/blog/acro-refrigeration-90-days">
                 <TiltCard className="rounded-xl bg-card/60 border border-border/30 overflow-hidden hover:border-border/60 transition-colors group">
                   <div className="p-6 sm:p-8 space-y-4">
                     <div className="flex items-center gap-3 text-xs font-mono text-muted-foreground">
-                      <span>Client Project</span>
+                      <span>Results</span>
                       <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
                       <span>Australia</span>
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold tracking-tight group-hover:text-foreground/90 transition-colors">
-                      Acro Refrigeration
+                      Acro Refrigeration — 90 Days Later
                     </h3>
                     <p className="text-sm text-muted-foreground/80">
-                      From WordPress Bottleneck to a Lightning-Fast,
-                      SEO-Optimized Platform
+                      The Receipts: Traffic Doubled, Rankings Climbing, AI
+                      Assistants Discovering the Site
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      A 50+ year Australian business had outgrown WordPress. I
-                      rebuilt their entire web presence — migrating 100+ blog
-                      posts, building a custom CMS, and boosting page speed by
-                      10x.
+                      Ninety days after the Acro rebuild: visitors up 110%, 91.5K
+                      Google search impressions, a 95 PageSpeed score that held,
+                      and chatgpt.com now in the referrer list. The receipts, in
+                      real numbers.
                     </p>
                     <div className="flex flex-wrap gap-2 pt-1">
                       {[
                         "Next.js",
-                        "Supabase",
-                        "Vercel",
-                        "Custom CMS",
                         "SEO",
+                        "Core Web Vitals",
+                        "Analytics",
+                        "Results",
                       ].map((tag) => (
                         <span
                           key={tag}
@@ -396,7 +396,7 @@ export default function HomeClient() {
                       ))}
                     </div>
                     <p className="text-sm font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors pt-1">
-                      Read Case Study →
+                      See the Numbers →
                     </p>
                   </div>
                 </TiltCard>
@@ -444,6 +444,21 @@ export default function HomeClient() {
                     </p>
                   </div>
                 </TiltCard>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUpItem}
+              className="pt-4 flex justify-center"
+            >
+              <Link
+                href="/blog"
+                className="group inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-md border border-border/40 text-foreground/80 hover:text-foreground hover:border-border/60 transition-all"
+              >
+                See All Case Studies &amp; Insights
+                <span className="group-hover:translate-x-1 transition-transform">
+                  →
+                </span>
               </Link>
             </motion.div>
           </motion.div>
