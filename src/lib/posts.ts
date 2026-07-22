@@ -33,6 +33,19 @@ export interface BlogPost {
 // 2026). Replace them with the real publish dates when you have them.
 const posts: BlogPost[] = [
   {
+    slug: "wp2shell-wordpress-core-rce",
+    featured: true,
+    title: "wp2shell: No Plugin, No Login, No Excuse",
+    subtitle:
+      "A Pre-Auth RCE in WordPress Core — and Why Core Flaws Hit Every Site at Once",
+    date: "2026-07-22",
+    type: "Insight",
+    cta: "Read the Breakdown",
+    tags: ["WordPress", "Security", "RCE", "CVE-2026-60137", "Web Architecture"],
+    preview:
+      "A pre-authentication RCE chain in WordPress core — no plugins, no login required — hitting 6.9.x and 7.0.x. How to tell if you're exposed, how to patch to 6.9.5 / 7.0.2, how to check for compromise, and why a core-level flaw makes every site vulnerable at the same instant.",
+  },
+  {
     slug: "two-sites-three-days",
     title: "Two Custom Sites. Three Days.",
     subtitle:

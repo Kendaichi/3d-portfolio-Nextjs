@@ -57,6 +57,11 @@ const PRESENTATION: Record<
     rot: -2,
   },
   "wordpress-vs-hardcoded": { variant: "index", rot: 2.5 },
+  "wp2shell-wordpress-core-rce": {
+    variant: "polaroid",
+    image: "/assets/wordpress-core/wordpress-core.webp",
+    rot: -2,
+  },
 };
 
 // Subtle scrapbook pin hues (echo the colored pins on the case-study pages).
