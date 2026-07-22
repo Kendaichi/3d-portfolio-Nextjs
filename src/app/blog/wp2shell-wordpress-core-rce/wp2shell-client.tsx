@@ -1091,6 +1091,48 @@ export default function Wp2shellClient() {
                 arriving right on schedule.
               </p>
             </motion.div>
+
+            {/* The permanent fix — earned offer */}
+            <motion.div
+              variants={popIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="mt-12 rounded-xl border border-green-500/25 bg-green-500/[0.04] p-6 sm:p-8"
+            >
+              <div className="flex flex-col md:flex-row md:items-center gap-6 justify-between">
+                <div className="space-y-2.5">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="h-4 w-4 text-green-400/70" />
+                    <p className="text-xs font-mono uppercase tracking-widest text-green-400/70">
+                      The permanent fix
+                    </p>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
+                    Patching ends the emergency. A rebuild ends the category.
+                  </h3>
+                  <p className="text-sm text-muted-foreground max-w-xl leading-relaxed">
+                    Updating to 6.9.5 or 7.0.2 closes this one door. Rebuilding
+                    onto a hardcoded Next.js stack removes the door entirely — no
+                    WordPress core, no plugin soup, no{" "}
+                    <code className="text-xs font-mono text-foreground/70">
+                      /wp-json/batch/v1
+                    </code>{" "}
+                    for a mass scanner to find. That's the work I do: migrating
+                    WordPress sites onto custom-coded builds that stay fast, score
+                    100 on SEO, and don't live on the internet's most-targeted
+                    CMS.
+                  </p>
+                </div>
+                <Link
+                  href="/#contact"
+                  className="shrink-0 self-start md:self-center inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium rounded-md bg-green-500/90 text-white hover:bg-green-500 transition-colors"
+                >
+                  Explore a Rebuild
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </motion.div>
           </motion.div>
         </section>
 
@@ -1152,28 +1194,30 @@ export default function Wp2shellClient() {
             className="bg-card/40 border border-border/20 rounded-xl p-8 sm:p-12 text-center space-y-4"
           >
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-              Need someone to actually handle this?
+              Tired of patching WordPress? Rebuild it once.
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
-              I audit, patch, and harden WordPress installs — and when the
-              maintenance math stops working, I migrate them to custom-coded
-              stacks that score 90+ on performance and 100 on SEO. If you're not
-              sure whether your site was exposed, or already compromised, let's
-              find out. A version check costs you nothing.
+              Update to 6.9.5 or 7.0.2 today — that's the emergency fix. But if
+              you're done with the maintenance treadmill, the endless patch
+              cycle, and the plugin roulette, there's a cleaner way out: a
+              hardcoded rebuild. I migrate WordPress sites onto custom Next.js
+              stacks that score 90+ on performance and 100 on SEO — and never
+              ship a wp2shell-shaped attack surface again. Not sure if you were
+              exposed or already compromised? Let's start with a free check.
             </p>
             <div className="flex flex-wrap justify-center gap-4 pt-2">
               <Link
                 href="/#contact"
                 className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium rounded-md bg-foreground text-background hover:bg-foreground/90 transition-colors"
               >
-                Get in Touch
+                Talk About a Rebuild
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/blog/wordpress-vs-hardcoded"
+                href="/#contact"
                 className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium rounded-md border border-border/40 text-foreground/80 hover:text-foreground hover:border-border/60 transition-all"
               >
-                Read WordPress vs. Hardcoded →
+                Get a Free Version Check
               </Link>
             </div>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 pt-2 text-xs text-muted-foreground/70">
