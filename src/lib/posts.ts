@@ -46,7 +46,6 @@ const posts: BlogPost[] = [
   },
   {
     slug: "wp2shell-wordpress-core-rce",
-    featured: true,
     title: "wp2shell: No Plugin, No Login, No Excuse",
     subtitle:
       "A Pre-Auth RCE in WordPress Core — and Why Core Flaws Hit Every Site at Once",

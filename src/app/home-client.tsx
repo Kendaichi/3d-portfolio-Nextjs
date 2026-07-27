@@ -29,7 +29,6 @@ const projectInternalAudit = "/assets/project-internal-audit.webp";
 // Add a slug here when you feature a new post; it falls back to the post type.
 const FEATURED_META: Record<string, { label: string; context: string }> = {
   "ai-website-builders-seo": { label: "Insight", context: "AI & Search" },
-  "wp2shell-wordpress-core-rce": { label: "Security", context: "Breaking" },
   "hvacr-group": { label: "Repeat Client", context: "Australia" },
   "acro-refrigeration-90-days": { label: "Results", context: "Australia" },
   "wordpress-vs-hardcoded": { label: "Insight", context: "Web Architecture" },
