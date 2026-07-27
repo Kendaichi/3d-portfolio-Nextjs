@@ -24,8 +24,38 @@ import {
   Clock,
   Receipt,
   Wallet,
+  HelpCircle,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
+
+/* ── FAQ data ───────────────────────────────────────────────────
+   Verbatim "People also ask" questions, each with a concise
+   ~40–55 word answer drawn from this post's content. Exported so
+   `page.tsx` can build matching FAQPage JSON-LD from the same
+   source — the visible copy and the structured data can't drift. */
+
+export const FAQS: { q: string; a: string }[] = [
+  {
+    q: "Should I use WordPress or code?",
+    a: "It comes down to your time horizon. Reach for WordPress when you need a simple, content-only site online this week on a tight budget. Choose custom code when the site is core to your business, has to be fast and SEO-strong, and needs to last for years.",
+  },
+  {
+    q: "Is anything better than WordPress?",
+    a: "For business sites built to last, yes — a hardcoded site on a modern framework like Next.js. It is faster, more secure, and cheaper to run over time, and you fully own it. Pair it with a headless CMS and you keep no-code editing without WordPress's long-run tax.",
+  },
+  {
+    q: "Why are people moving away from WordPress?",
+    a: "Because the convenience compounds into cost. Theme and plugin bloat slow the site down, its large attack surface demands constant security patching, and updates never stop. What launches fast in week one turns slow, fragile, and expensive to maintain by year three.",
+  },
+  {
+    q: "What is the disadvantage of WordPress?",
+    a: "Its biggest disadvantage is long-run cost. Plugin and theme bloat drag down Core Web Vitals, its huge attack surface makes it the web's most-targeted CMS, and endless updates plus premium licenses (~$800/yr) mean you pay — in both time and money — just to stand still.",
+  },
+  {
+    q: "Why is coding better than WordPress?",
+    a: "A hardcoded site ships only what it needs: lean, edge-served, and fast by default. No plugin soup, a far smaller attack surface, SEO baked into semantic markup, near-zero recurring cost, and plain portable code you fully own — with no platform ceiling to fight.",
+  },
+];
 
 /* ── animation variants ─────────────────────────────────────── */
 
@@ -377,7 +407,7 @@ export default function WpVsHardcodedClient() {
                 02 — The Disadvantage That Compounds
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                The Long-Run Tax of WordPress
+                The Long-Run Tax: WordPress's Biggest Disadvantages
               </h2>
             </motion.div>
 
@@ -486,7 +516,7 @@ export default function WpVsHardcodedClient() {
                 03 — Where Custom Code Pulls Ahead
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                The Hardcoded Edge
+                The Hardcoded Edge: Why Coding Beats WordPress
               </h2>
             </motion.div>
 
@@ -991,6 +1021,62 @@ export default function WpVsHardcodedClient() {
                 — off a slow WordPress site and onto a custom Next.js platform,
                 for a ~10x speed boost with zero rankings lost.
               </p>
+            </motion.div>
+          </motion.div>
+        </section>
+
+        {/* ── Divider ── */}
+        <div className="container max-w-4xl">
+          <div className="h-px bg-border/20" />
+        </div>
+
+        {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            SECTION 7: PEOPLE ALSO ASK (FAQ)
+            Verbatim question headings + concise answers so Google
+            can lift them into "People also ask" / featured snippets.
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <section className="container max-w-4xl py-20 lg:py-28">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            <motion.div variants={fadeUp} className="mb-12">
+              <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-2">
+                07 — People Also Ask
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+                WordPress vs. Code: Quick Answers
+              </h2>
+            </motion.div>
+
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="space-y-4"
+            >
+              {FAQS.map(({ q, a }) => (
+                <motion.div
+                  key={q}
+                  variants={fadeUp}
+                  className="bg-card/60 border border-border/30 rounded-lg p-6"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-9 h-9 rounded-full border border-border/40 bg-accent/40 flex items-center justify-center shrink-0">
+                      <HelpCircle className="h-4 w-4 text-foreground/50" />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-lg font-semibold">{q}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {a}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </motion.div>
           </motion.div>
         </section>

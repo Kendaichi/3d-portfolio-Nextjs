@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import WpVsHardcodedClient from "./wp-vs-hardcoded-client";
+import WpVsHardcodedClient, { FAQS } from "./wp-vs-hardcoded-client";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 const title = "WordPress vs. Hardcoded — The Long-Run Edge of Custom Code";
@@ -38,6 +38,16 @@ const articleJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -63,6 +73,10 @@ export default function Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <WpVsHardcodedClient />
     </>
