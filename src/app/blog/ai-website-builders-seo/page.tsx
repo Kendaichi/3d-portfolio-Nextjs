@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import WpVsHardcodedClient from "./wp-vs-hardcoded-client";
+import AiBuildersSeoClient from "./ai-builders-seo-client";
 import { FAQS } from "./faqs";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
-const title = "WordPress vs. Hardcoded — The Long-Run Edge of Custom Code";
+const title =
+  "Are AI Website Builders Good for SEO? — The Honest Take on Lovable, Bolt & v0";
 const description =
-  "WordPress wins the first week; a hardcoded site wins the next five years. A field-notes breakdown of where custom-coded websites gain an edge in speed, security, SEO, and ownership — and how WordPress becomes a disadvantage over the long run.";
+  "AI website builders like Lovable, Bolt, and v0 ship UIs in minutes — but are they good for SEO? A field-notes breakdown of where AI builders and AI-generated content help your rankings, where client-rendered SPAs quietly hurt them, and whether SEO is dead or just evolving in 2026.";
 
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/blog/wordpress-vs-hardcoded" },
+  alternates: { canonical: "/blog/ai-website-builders-seo" },
   openGraph: {
     title,
     description,
-    url: "/blog/wordpress-vs-hardcoded",
+    url: "/blog/ai-website-builders-seo",
     type: "article",
   },
 };
@@ -24,18 +25,19 @@ const articleJsonLd = {
   "@type": "Article",
   headline: title,
   description,
-  url: `${SITE_URL}/blog/wordpress-vs-hardcoded`,
-  image: `${SITE_URL}/blog/wordpress-vs-hardcoded/opengraph-image`,
+  url: `${SITE_URL}/blog/ai-website-builders-seo`,
+  image: `${SITE_URL}/blog/ai-website-builders-seo/opengraph-image`,
   author: { "@type": "Person", name: SITE_NAME, url: SITE_URL },
   publisher: { "@type": "Person", name: SITE_NAME },
   keywords: [
-    "WordPress",
-    "Custom Code",
-    "Next.js",
-    "Web Performance",
+    "AI Website Builders",
+    "Lovable",
     "SEO",
-    "Headless CMS",
-    "Total Cost of Ownership",
+    "AI-Generated Content",
+    "Generative Engine Optimization",
+    "Answer Engine Optimization",
+    "Next.js",
+    "Core Web Vitals",
   ],
 };
 
@@ -58,8 +60,8 @@ const breadcrumbJsonLd = {
     {
       "@type": "ListItem",
       position: 3,
-      name: "WordPress vs. Hardcoded",
-      item: `${SITE_URL}/blog/wordpress-vs-hardcoded`,
+      name: "Are AI Website Builders Good for SEO?",
+      item: `${SITE_URL}/blog/ai-website-builders-seo`,
     },
   ],
 };
@@ -79,7 +81,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <WpVsHardcodedClient />
+      <AiBuildersSeoClient />
     </>
   );
 }

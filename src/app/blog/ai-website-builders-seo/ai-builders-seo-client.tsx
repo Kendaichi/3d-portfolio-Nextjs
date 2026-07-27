@@ -4,26 +4,24 @@ import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import {
   ArrowLeft,
-  Zap,
-  Gauge,
-  Search,
-  Puzzle,
-  ShieldAlert,
-  Wrench,
-  Lock,
-  TrendingDown,
-  Code2,
-  Feather,
-  ShieldCheck,
-  DollarSign,
+  Sparkles,
+  Wand2,
   Rocket,
+  EyeOff,
+  FileWarning,
+  Layers,
+  Gauge,
+  Code2,
+  Bot,
+  Lightbulb,
+  PenLine,
+  Search,
+  Quote,
+  Globe,
+  Clock,
   Scale,
   CheckCircle2,
   XCircle,
-  Lightbulb,
-  Clock,
-  Receipt,
-  Wallet,
   HelpCircle,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
@@ -87,7 +85,7 @@ function StickyNote({
   rotate = -3,
 }: {
   children: React.ReactNode;
-  color?: "yellow" | "blue" | "pink" | "green";
+  color?: "yellow" | "blue" | "pink" | "green" | "red";
   rotate?: number;
 }) {
   const bgMap = {
@@ -95,6 +93,7 @@ function StickyNote({
     blue: "bg-blue-500/[0.08] border-blue-500/20",
     pink: "bg-pink-500/[0.08] border-pink-500/20",
     green: "bg-green-500/[0.08] border-green-500/20",
+    red: "bg-red-500/[0.08] border-red-500/20",
   };
 
   return (
@@ -107,80 +106,9 @@ function StickyNote({
   );
 }
 
-/* ── head-to-head comparison row ────────────────────────────── */
-
-function VersusRow({
-  label,
-  wp,
-  code,
-  wpWins = false,
-}: {
-  label: string;
-  wp: string;
-  code: string;
-  wpWins?: boolean;
-}) {
-  return (
-    <motion.div
-      variants={fadeUp}
-      className="grid grid-cols-1 sm:grid-cols-[minmax(0,10rem)_1fr_1fr] gap-3 sm:gap-4 py-4 border-b border-border/20 last:border-b-0"
-    >
-      <p className="text-sm font-semibold text-foreground/80 sm:pt-0.5">
-        {label}
-      </p>
-
-      {/* WordPress cell */}
-      <div className="flex items-start gap-2">
-        {wpWins ? (
-          <CheckCircle2 className="h-4 w-4 text-green-400/70 mt-0.5 shrink-0" />
-        ) : (
-          <XCircle className="h-4 w-4 text-red-400/60 mt-0.5 shrink-0" />
-        )}
-        <p className="text-sm text-muted-foreground leading-relaxed">{wp}</p>
-      </div>
-
-      {/* Hardcoded cell */}
-      <div className="flex items-start gap-2">
-        {wpWins ? (
-          <XCircle className="h-4 w-4 text-red-400/60 mt-0.5 shrink-0" />
-        ) : (
-          <CheckCircle2 className="h-4 w-4 text-green-400/70 mt-0.5 shrink-0" />
-        )}
-        <p className="text-sm text-muted-foreground leading-relaxed">{code}</p>
-      </div>
-    </motion.div>
-  );
-}
-
-/* ── receipt line item ──────────────────────────────────────── */
-
-function CostLine({
-  label,
-  price,
-  free = false,
-}: {
-  label: string;
-  price: string;
-  free?: boolean;
-}) {
-  return (
-    <div className="flex items-baseline gap-2 py-1.5">
-      <span className="text-sm text-muted-foreground">{label}</span>
-      <span className="flex-1 -translate-y-[3px] border-b border-dotted border-border/40" />
-      <span
-        className={`text-sm font-mono shrink-0 ${
-          free ? "text-green-400/70" : "text-foreground/70"
-        }`}
-      >
-        {price}
-      </span>
-    </div>
-  );
-}
-
 /* ── main page ──────────────────────────────────────────────── */
 
-export default function WpVsHardcodedClient() {
+export default function AiBuildersSeoClient() {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <CustomCursor />
@@ -218,7 +146,7 @@ export default function WpVsHardcodedClient() {
             variants={fadeUp}
             className="flex flex-wrap items-center gap-3 mb-6"
           >
-            {["WordPress", "Custom Code", "Performance", "SEO", "Field Notes"].map(
+            {["AI Builders", "Lovable", "SEO", "AI Content", "Field Notes"].map(
               (tag) => (
                 <span
                   key={tag}
@@ -234,33 +162,35 @@ export default function WpVsHardcodedClient() {
             variants={fadeUp}
             className="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-3"
           >
-            Insight — Web Architecture
+            Insight — AI & Search
           </motion.p>
 
           <motion.h1
             variants={fadeUp}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-4"
           >
-            WordPress vs.
+            Are AI Builders
             <br />
-            <span className="text-gradient">Hardcoded</span>
+            <span className="text-gradient">Good for SEO?</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed"
           >
-            WordPress is the fastest way to get online — and often the slowest
-            way to stay there. Here's where a hand-built, hardcoded site earns
-            its edge, and why the convenience of WordPress can quietly turn into
-            a liability over the long run.
+            An AI website builder can turn an idea into a live interface before
+            your coffee's cold. Whether that site can actually be{" "}
+            <span className="text-foreground/80">found</span> is a very different
+            question — and the honest answer is more nuanced than either the hype
+            or the backlash admits.
           </motion.p>
 
           <motion.p
             variants={fadeIn}
             className="mt-6 text-sm italic text-muted-foreground/50 font-mono"
           >
-            Written from the trenches — after migrating a client off WordPress.
+            Written from the trenches — after rebuilding AI-prototyped sites for
+            search.
           </motion.p>
         </motion.header>
 
@@ -270,7 +200,7 @@ export default function WpVsHardcodedClient() {
         </div>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            SECTION 1: WHY WORDPRESS FEELS EASY
+            SECTION 1: WHY AI BUILDERS FEEL LIKE MAGIC
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="container max-w-4xl py-20 lg:py-28">
           <motion.div
@@ -281,10 +211,10 @@ export default function WpVsHardcodedClient() {
           >
             <motion.div variants={fadeUp} className="mb-12">
               <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-2">
-                01 — The Honest Case for WordPress
+                01 — The Honest Case for AI Builders
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                Why It Wins the First Week
+                Why They Feel Like Magic
               </h2>
             </motion.div>
 
@@ -293,48 +223,46 @@ export default function WpVsHardcodedClient() {
               className="space-y-5 text-muted-foreground leading-relaxed max-w-2xl mb-12"
             >
               <p className="text-lg text-foreground/90">
-                Let's be fair. WordPress powers roughly 40% of the web for a
-                reason — and dismissing it outright would be dishonest.
+                Let's be fair. Tools like Lovable, Bolt, and v0 are a genuine leap
+                — and dismissing them outright would be dishonest.
               </p>
               <p>
-                You can go from an empty domain to a live, editable site in an
-                afternoon. There's a theme for everything, a plugin for
-                everything, and a client can update their own content without
-                ever touching a line of code. For a brochure site, a small blog,
-                or an MVP that needs to exist{" "}
-                <span className="text-foreground/80">this week</span>, that speed
-                is genuinely hard to beat.
+                You describe what you want in plain English and watch a working
+                interface appear. No boilerplate, no setup, no blank editor. For a
+                prototype, a demo, or an MVP that needs to exist{" "}
+                <span className="text-foreground/80">this afternoon</span>, that
+                speed is genuinely hard to beat.
               </p>
               <p>
-                The trouble is that WordPress optimizes for the{" "}
-                <span className="text-foreground/80">first week</span> — not the
-                next five years. The bill for that convenience arrives later, and
-                it compounds.
+                The trouble is that they optimize for{" "}
+                <span className="text-foreground/80">looks live</span> — not{" "}
+                <span className="text-foreground/80">gets found</span>. And those
+                are two very different problems.
               </p>
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 {
-                  icon: Rocket,
+                  icon: Sparkles,
                   color: "green" as const,
                   rotate: -2,
-                  title: "Fast to Launch",
-                  body: "Pick a theme, install a few plugins, and you're live the same day. No build pipeline required.",
+                  title: "Idea to UI in Minutes",
+                  body: "Describe it in plain English and a working interface appears. For prototypes and demos, nothing gets you to 'something real' faster.",
                 },
                 {
-                  icon: Puzzle,
+                  icon: Wand2,
                   color: "blue" as const,
                   rotate: 1.5,
-                  title: "Plugin for Everything",
-                  body: "A vast ecosystem means most common features already exist as a one-click install.",
+                  title: "No Boilerplate",
+                  body: "Routing, state, styling, components — all scaffolded for you. You skip the tedious setup and start from a running app.",
                 },
                 {
-                  icon: Feather,
+                  icon: Rocket,
                   color: "yellow" as const,
                   rotate: -1,
-                  title: "No-Code Editing",
-                  body: "Non-technical owners can publish posts and tweak pages without calling a developer.",
+                  title: "Perfect for MVPs",
+                  body: "Validating an idea or pitching a client? An AI builder gets a clickable product in front of people the same day.",
                 },
               ].map(({ icon: Icon, color, rotate, title, body }) => (
                 <motion.div
@@ -365,7 +293,7 @@ export default function WpVsHardcodedClient() {
         </div>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            SECTION 2: THE LONG-RUN TAX
+            SECTION 2: THE SEO CATCH
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="container max-w-4xl py-20 lg:py-28">
           <motion.div
@@ -376,10 +304,10 @@ export default function WpVsHardcodedClient() {
           >
             <motion.div variants={fadeUp} className="mb-12">
               <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-2">
-                02 — The Disadvantage That Compounds
+                02 — The Catch Nobody Demos
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                The Long-Run Tax: WordPress's Biggest Disadvantages
+                Where AI Builders Quietly Cost You Rankings
               </h2>
             </motion.div>
 
@@ -388,13 +316,14 @@ export default function WpVsHardcodedClient() {
               className="space-y-5 text-muted-foreground leading-relaxed max-w-2xl mb-12"
             >
               <p className="text-lg text-foreground/90">
-                Every convenience WordPress offers is really a trade you make
-                against the future. None of these hurt on day one. All of them
-                hurt by year three.
+                The trouble starts the moment "looks live" has to become "gets
+                found." Most builders generate a working interface fast — not the
+                technical scaffolding search engines actually read. None of these
+                show up in a demo. All of them show up in your rankings.
               </p>
             </motion.div>
 
-            {/* Long-run disadvantages — the compounding costs */}
+            {/* SEO weak points */}
             <motion.div
               variants={stagger}
               initial="hidden"
@@ -404,34 +333,34 @@ export default function WpVsHardcodedClient() {
             >
               {[
                 {
+                  icon: EyeOff,
+                  title: "Client-Side Rendering",
+                  body: "Many builders ship a single-page app where the real content loads via JavaScript after the page does. Google can render JS, but it's slower and less reliable — and other crawlers and AI engines often see an empty shell.",
+                },
+                {
+                  icon: FileWarning,
+                  title: "Thin, Templated Metadata",
+                  body: "Title tags, descriptions, canonical URLs, Open Graph — the metadata that decides how you appear in results is often generic, duplicated across pages, or missing entirely unless you wire it up by hand.",
+                },
+                {
+                  icon: Layers,
+                  title: "No Structured Data",
+                  body: "The schema markup that wins rich results and gets you cited by AI assistants rarely comes out of the box. Without it, engines understand your pages less — and quote them less.",
+                },
+                {
                   icon: Gauge,
                   title: "Performance Bloat",
-                  body: "Themes and page builders ship code for every feature you might use, not the few you do. Stack a dozen plugins on top and each one injects its own scripts and stylesheets. The result is render-blocking weight that no amount of caching fully hides — and Google's Core Web Vitals notice.",
+                  body: "Generated code favors 'works' over 'lean.' Unused components, heavy client bundles, and unoptimized images drag down Core Web Vitals — a direct ranking and user-experience signal.",
                 },
                 {
-                  icon: Puzzle,
-                  title: "Plugin Dependency & Fragility",
-                  body: "Your site is only as stable as the weakest plugin you installed. One abandoned plugin, one bad update, or one version conflict can take the whole site down — and you're now debugging code you never wrote and can't fully see.",
+                  icon: Code2,
+                  title: "A Customization Ceiling",
+                  body: "The moment you need a redirect rule, a sitemap tweak, or a rendering change the tool didn't anticipate, you're fighting the abstraction instead of editing code you control.",
                 },
                 {
-                  icon: ShieldAlert,
-                  title: "A Bigger Attack Surface",
-                  body: "As the most popular CMS on earth, WordPress is also the most targeted. Every plugin is another door an attacker can try. Security becomes a subscription: patch constantly, or become a statistic.",
-                },
-                {
-                  icon: Wrench,
-                  title: "The Maintenance Treadmill",
-                  body: "Core updates, plugin updates, theme updates, PHP version bumps, backups, uptime monitoring. It never ends, and skipping it is how sites get breached. That's ongoing time or money spent just to stand still.",
-                },
-                {
-                  icon: Lock,
-                  title: "Lock-In You Don't Notice",
-                  body: "Build your business on a premium theme or a proprietary page builder and your content gets entangled with their shortcodes and markup. Leaving later means untangling — or rebuilding — everything.",
-                },
-                {
-                  icon: TrendingDown,
-                  title: "A Ceiling on Customization",
-                  body: "The moment you need something the ecosystem doesn't offer, you're fighting the platform instead of building on it. Custom features become awkward workarounds bolted onto a system that was never designed for them.",
+                  icon: Bot,
+                  title: "Generic by Default",
+                  body: "Everyone prompting the same tools gets similar structure and copy. Search rewards distinctive, genuinely useful pages — not another near-identical AI-scaffolded template.",
                 },
               ].map(({ icon: Icon, title, body }, i) => (
                 <motion.div
@@ -462,7 +391,8 @@ export default function WpVsHardcodedClient() {
               className="text-center pt-10"
             >
               <p className="text-sm italic text-muted-foreground/50 font-mono">
-                "It works fine" — until the day it doesn't, all at once.
+                It renders fine in the preview — until Googlebot sees a blank
+                page.
               </p>
             </motion.div>
           </motion.div>
@@ -474,7 +404,7 @@ export default function WpVsHardcodedClient() {
         </div>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            SECTION 3: THE HARDCODED EDGE
+            SECTION 3: THE LOVABLE QUESTION
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="container max-w-4xl py-20 lg:py-28">
           <motion.div
@@ -485,10 +415,10 @@ export default function WpVsHardcodedClient() {
           >
             <motion.div variants={fadeUp} className="mb-12">
               <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-2">
-                03 — Where Custom Code Pulls Ahead
+                03 — The Lovable Question
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                The Hardcoded Edge: Why Coding Beats WordPress
+                Are Lovable Websites Good for SEO?
               </h2>
             </motion.div>
 
@@ -497,75 +427,77 @@ export default function WpVsHardcodedClient() {
               className="space-y-5 text-muted-foreground leading-relaxed max-w-2xl mb-12"
             >
               <p className="text-lg text-foreground/90">
-                A hardcoded site — built with a modern framework like Next.js
-                instead of a general-purpose CMS — starts from the opposite
-                premise: ship only what this site actually needs, and own every
-                line of it.
+                Lovable is one of the best tools at turning a prompt into a
+                polished React app. But "good for SEO" depends entirely on what
+                you're building.
               </p>
               <p>
-                That single decision flips almost every one of WordPress's
-                long-run weaknesses into a strength.
+                Its default output is a client-rendered Vite single-page app —
+                where text and metadata arrive via JavaScript. That's a great fit
+                for dashboards and logged-in tools where SEO is irrelevant, and a
+                weak fit for content and marketing sites that live or die by
+                search.
               </p>
             </motion.div>
 
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-            >
-              {[
-                {
-                  icon: Zap,
-                  title: "Fast by Default",
-                  body: "No plugin soup, no builder bloat. You ship lean HTML, CSS, and JS — often pre-rendered and served from the edge. Speed isn't a plugin you buy; it's the baseline.",
-                },
-                {
-                  icon: Code2,
-                  title: "Total Control",
-                  body: "Any design, any feature, any integration — built exactly the way it should work, with no platform telling you what's possible.",
-                },
-                {
-                  icon: ShieldCheck,
-                  title: "A Smaller Attack Surface",
-                  body: "No public admin panel to brute-force, no third-party plugins with unknown code. Fewer doors means far fewer ways in.",
-                },
-                {
-                  icon: Search,
-                  title: "SEO Baked In",
-                  body: "Semantic markup, clean Core Web Vitals, structured data, and full control over metadata and redirects — the exact signals search engines reward.",
-                },
-                {
-                  icon: DollarSign,
-                  title: "Cheaper Over Time",
-                  body: "No premium plugin licenses stacking up yearly, no bloated managed hosting to absorb the weight. Lower maintenance means lower total cost of ownership.",
-                },
-                {
-                  icon: Lock,
-                  title: "You Actually Own It",
-                  body: "The code is yours, in plain files, portable to any host. No proprietary builder, no lock-in, no permission needed to move.",
-                },
-              ].map(({ icon: Icon, title, body }) => (
-                <motion.div
-                  key={title}
-                  variants={fadeUp}
-                  className="bg-card/60 border border-border/30 rounded-lg p-6 space-y-2 hover:border-green-500/30 transition-colors"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full border border-green-500/20 bg-green-500/[0.05] flex items-center justify-center shrink-0">
-                      <Icon className="h-4 w-4 text-green-400/70" />
-                    </div>
-                    <h3 className="text-sm font-semibold">{title}</h3>
-                  </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {body}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <motion.div
+                variants={tiltLeft}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="bg-card/60 border border-green-500/20 rounded-lg p-6 space-y-4"
+              >
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-green-400/70" />
+                  <h3 className="text-lg font-semibold">A great fit for…</h3>
+                </div>
+                <ul className="space-y-2.5">
+                  {[
+                    "Internal tools and dashboards behind a login.",
+                    "Web apps where users act, not where Google reads.",
+                    "Fast prototypes, demos, and investor pitches.",
+                    "MVPs validating an idea before you invest more.",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-green-400/50 mt-0.5 shrink-0" />
+                      <span className="text-sm text-muted-foreground leading-relaxed">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
 
-            {/* The honest trade-off note */}
+              <motion.div
+                variants={tiltRight}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="bg-card/60 border border-red-500/20 rounded-lg p-6 space-y-4"
+              >
+                <div className="flex items-center gap-3">
+                  <XCircle className="h-5 w-5 text-red-400/60" />
+                  <h3 className="text-lg font-semibold">A weak fit for…</h3>
+                </div>
+                <ul className="space-y-2.5">
+                  {[
+                    "Blogs and content sites that must rank on Google.",
+                    "Landing pages where organic traffic drives leads.",
+                    "Local business sites competing in search results.",
+                    "Anything that needs to be cited by AI assistants.",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <XCircle className="h-4 w-4 text-red-400/50 mt-0.5 shrink-0" />
+                      <span className="text-sm text-muted-foreground leading-relaxed">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+
             <motion.div
               variants={tiltLeft}
               initial="hidden"
@@ -581,12 +513,11 @@ export default function WpVsHardcodedClient() {
                       The honest trade-off
                     </p>
                     <p className="text-xs text-muted-foreground leading-relaxed">
-                      Hardcoded costs more up front — it needs a developer to
-                      build, and editing needs a plan. The right move isn't to
-                      pretend that's free. It's to pair the custom build with a
-                      lightweight or headless CMS, so owners keep the no-code
-                      editing WordPress gave them, without inheriting its
-                      long-run tax.
+                      You can make a Lovable site rank — add prerendering or SSR,
+                      real meta tags, and structured data. But that's engineering
+                      work bolted onto generated code. For an SEO-critical site,
+                      the cleaner pattern is to prototype in Lovable, then ship on
+                      a framework built for rendering, like Next.js.
                     </p>
                   </div>
                 </div>
@@ -601,7 +532,7 @@ export default function WpVsHardcodedClient() {
         </div>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            SECTION 4: FOLLOW THE MONEY
+            SECTION 4: IS AI-GENERATED CONTENT GOOD FOR SEO?
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="container max-w-4xl py-20 lg:py-28">
           <motion.div
@@ -612,10 +543,10 @@ export default function WpVsHardcodedClient() {
           >
             <motion.div variants={fadeUp} className="mb-12">
               <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-2">
-                04 — Follow the Money
+                04 — Content, Not Just Code
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                The Subscription Bill Nobody Mentions
+                Is AI-Generated Content Good for SEO?
               </h2>
             </motion.div>
 
@@ -624,163 +555,52 @@ export default function WpVsHardcodedClient() {
               className="space-y-5 text-muted-foreground leading-relaxed max-w-2xl mb-12"
             >
               <p className="text-lg text-foreground/90">
-                WordPress is free to install — that's the part everyone repeats.
-                The part they skip is that a production-ready business site
-                almost never runs on the free version alone.
-              </p>
-              <p>
-                To make it fast, secure, and genuinely functional, you rent a
-                stack of premium plugins and managed hosting — and you keep
-                paying, every single year. Here's a realistic annual bill, line
-                by line, against the same site built by hand.
+                Google's position is clearer than the panic suggests: it rewards
+                helpful content however it's made, and penalizes content made only
+                to game rankings. The method isn't the problem — the quality is.
               </p>
             </motion.div>
 
-            {/* Two receipts, side by side */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* WordPress receipt */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <motion.div
                 variants={tiltLeft}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="bg-card/60 border border-red-500/20 rounded-lg p-6 shadow-lg shadow-black/10"
               >
-                <div className="flex items-center gap-3 mb-4 pb-4 border-b border-border/20">
-                  <div className="w-10 h-10 rounded-full border border-red-500/20 bg-red-500/[0.05] flex items-center justify-center shrink-0">
-                    <Receipt className="h-5 w-5 text-red-400/60" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold">The WordPress Bill</h3>
-                    <p className="text-xs text-muted-foreground">
-                      A typical business-site stack
-                    </p>
-                  </div>
-                </div>
-
-                <CostLine
-                  label="Managed hosting (WP Engine / Kinsta)"
-                  price="~$300/yr"
-                />
-                <CostLine label="Page builder (Elementor Pro)" price="~$59/yr" />
-                <CostLine label="SEO (Yoast Premium)" price="~$99/yr" />
-                <CostLine label="Forms (WPForms Pro)" price="~$100/yr" />
-                <CostLine
-                  label="Security (Wordfence Premium)"
-                  price="~$119/yr"
-                />
-                <CostLine
-                  label="Backups (UpdraftPlus Premium)"
-                  price="~$70/yr"
-                />
-                <CostLine label="Caching (WP Rocket)" price="~$59/yr" />
-
-                <div className="flex items-baseline justify-between gap-3 mt-4 pt-4 border-t border-border/30">
-                  <span className="text-sm font-semibold text-foreground/80">
-                    Every year, forever
-                  </span>
-                  <span className="text-xl font-bold font-mono text-red-400/80">
-                    ≈ $800
-                  </span>
-                </div>
+                <StickyNote color="green" rotate={-1.5}>
+                  <PenLine className="h-5 w-5 text-green-400/60 mb-2" />
+                  <p className="text-sm font-semibold text-foreground/80 mb-1">
+                    What ranks
+                  </p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    AI drafts refined by a human with real expertise and
+                    first-hand experience — accurate, specific, and genuinely
+                    useful. Google rewards the result, not the method. That's
+                    E-E-A-T in practice.
+                  </p>
+                </StickyNote>
               </motion.div>
 
-              {/* Hardcoded receipt */}
               <motion.div
                 variants={tiltRight}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="bg-card/60 border border-green-500/20 rounded-lg p-6 shadow-lg shadow-black/10"
               >
-                <div className="flex items-center gap-3 mb-4 pb-4 border-b border-border/20">
-                  <div className="w-10 h-10 rounded-full border border-green-500/20 bg-green-500/[0.05] flex items-center justify-center shrink-0">
-                    <Wallet className="h-5 w-5 text-green-400/70" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold">The Hardcoded Bill</h3>
-                    <p className="text-xs text-muted-foreground">
-                      The same site, modern stack
-                    </p>
-                  </div>
-                </div>
-
-                <CostLine
-                  label="Framework (Next.js, open source)"
-                  price="$0"
-                  free
-                />
-                <CostLine
-                  label="Hosting + CDN (Vercel / Cloudflare)"
-                  price="$0"
-                  free
-                />
-                <CostLine label="SSL certificate (auto-issued)" price="$0" free />
-                <CostLine label="SEO (built into the code)" price="$0" free />
-                <CostLine label="Forms (serverless / EmailJS)" price="$0" free />
-                <CostLine
-                  label="Security (no plugins to license)"
-                  price="$0"
-                  free
-                />
-                <CostLine label="Backups (it all lives in Git)" price="$0" free />
-
-                <div className="flex items-baseline justify-between gap-3 mt-4 pt-4 border-t border-border/30">
-                  <span className="text-sm font-semibold text-foreground/80">
-                    On generous free tiers
-                  </span>
-                  <span className="text-xl font-bold font-mono text-green-400/80">
-                    $0
-                  </span>
-                </div>
+                <StickyNote color="red" rotate={1.5}>
+                  <FileWarning className="h-5 w-5 text-red-400/60 mb-2" />
+                  <p className="text-sm font-semibold text-foreground/80 mb-1">
+                    What gets filtered
+                  </p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Unedited, mass-produced pages published only to rank. Google's
+                    spam policies explicitly target scaled content abuse — thin,
+                    generic output gets buried or deindexed.
+                  </p>
+                </StickyNote>
               </motion.div>
             </div>
-
-            {/* Savings highlight */}
-            <motion.div
-              variants={popIn}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="mt-8 text-center"
-            >
-              <p className="text-sm text-muted-foreground">
-                That's roughly{" "}
-                <span className="text-foreground font-semibold">
-                  $800–$1,500 saved every year
-                </span>{" "}
-                — and across a five-year life, the gap runs into thousands.
-              </p>
-            </motion.div>
-
-            {/* Honest note */}
-            <motion.div
-              variants={tiltLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="max-w-xl mx-auto mt-10"
-            >
-              <StickyNote color="yellow" rotate={-1.5}>
-                <div className="flex items-start gap-3">
-                  <Lightbulb className="h-5 w-5 text-yellow-400/60 mt-0.5 shrink-0" />
-                  <div>
-                    <p className="text-sm font-semibold text-foreground/80 mb-1">
-                      Keeping it honest
-                    </p>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      Free tiers aren't infinite — Vercel's Hobby plan is
-                      non-commercial, and a high-traffic site eventually moves to
-                      a paid plan (often ~$20/mo). But that's paying for scale,
-                      not for basic features. With a hardcoded site,
-                      functionality is a one-time build cost; with WordPress,
-                      it's rent you pay forever. (A domain, ~$15/yr, is the one
-                      line both sides share.)
-                    </p>
-                  </div>
-                </div>
-              </StickyNote>
-            </motion.div>
           </motion.div>
         </section>
 
@@ -790,7 +610,7 @@ export default function WpVsHardcodedClient() {
         </div>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            SECTION 5: HEAD-TO-HEAD
+            SECTION 5: IS SEO DEAD?
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="container max-w-4xl py-20 lg:py-28">
           <motion.div
@@ -801,77 +621,69 @@ export default function WpVsHardcodedClient() {
           >
             <motion.div variants={fadeUp} className="mb-12">
               <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-2">
-                05 — Side by Side
+                05 — The Bigger Picture
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                Head-to-Head
+                Is SEO Dead? No — It's Splitting in Two
               </h2>
             </motion.div>
 
             <motion.div
               variants={fadeUp}
-              className="bg-card/40 border border-border/30 rounded-xl p-6 sm:p-8"
+              className="space-y-5 text-muted-foreground leading-relaxed max-w-2xl mb-12"
             >
-              {/* Column headers */}
-              <div className="hidden sm:grid grid-cols-[minmax(0,10rem)_1fr_1fr] gap-4 pb-4 mb-2 border-b border-border/30">
-                <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                  Dimension
-                </span>
-                <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                  WordPress
-                </span>
-                <span className="text-xs font-mono uppercase tracking-widest text-foreground/80">
-                  Hardcoded
-                </span>
-              </div>
-
-              <VersusRow
-                label="Time to launch"
-                wp="Live in hours off a template — its one genuine edge."
-                code="A real build, not a template — but a focused one still ships in about a week."
-                wpWins
-              />
-              <VersusRow
-                label="Performance"
-                wp="Weighed down by plugin and builder overhead."
-                code="Lean and edge-served — fast is the default state."
-              />
-              <VersusRow
-                label="Maintenance"
-                wp="A constant treadmill of updates and patches."
-                code="Minimal — no plugin ecosystem to babysit."
-              />
-              <VersusRow
-                label="Security"
-                wp="The web's most-targeted CMS; a wide attack surface."
-                code="Few moving parts, so far fewer ways in."
-              />
-              <VersusRow
-                label="Customization"
-                wp="Easy until you hit the ceiling, then you fight it."
-                code="No ceiling — anything you can code, you can ship."
-              />
-              <VersusRow
-                label="Long-term cost"
-                wp="Recurring licenses, hosting, and upkeep add up."
-                code="Higher up front, lower to run and own over time."
-              />
-              <VersusRow
-                label="Ownership"
-                wp="Tangled in themes, builders, and plugin lock-in."
-                code="Plain, portable code that's fully yours."
-              />
+              <p className="text-lg text-foreground/90">
+                The biggest threat isn't AI builders — it's{" "}
+                <span className="text-foreground/80">zero-click search</span>. AI
+                Overviews and chatbots answer more queries on the page itself, so
+                fewer people click through. SEO isn't being replaced; it's
+                expanding into a wider game.
+              </p>
+              <p>
+                Nothing is "better than SEO now" — the winning move is SEO plus
+                answer-engine visibility, on a foundation you actually own.
+              </p>
             </motion.div>
 
-            <motion.p
-              variants={fadeIn}
+            <motion.div
+              variants={stagger}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
-              className="text-xs text-muted-foreground/60 mt-4 text-center"
+              viewport={{ once: true, amount: 0.1 }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4"
             >
-              WordPress wins the sprint. Hardcoded wins the marathon.
-            </motion.p>
+              {[
+                {
+                  icon: Search,
+                  title: "Still: Technical SEO",
+                  body: "Fast, crawlable, well-structured pages remain the foundation. If engines can't read you, nothing else matters.",
+                },
+                {
+                  icon: Quote,
+                  title: "New: Answer-Engine Visibility",
+                  body: "GEO and AEO — structuring content so AI Overviews, ChatGPT, and Perplexity cite you as a source, not just rank you.",
+                },
+                {
+                  icon: Globe,
+                  title: "Insurance: Owned Channels",
+                  body: "Email, an audience, referrals. The less you depend on any single algorithm, the safer your traffic.",
+                },
+              ].map(({ icon: Icon, title, body }) => (
+                <motion.div
+                  key={title}
+                  variants={fadeUp}
+                  className="bg-card/60 border border-border/30 rounded-lg p-6 space-y-2 hover:border-green-500/30 transition-colors"
+                >
+                  <div className="w-9 h-9 rounded-full border border-green-500/20 bg-green-500/[0.05] flex items-center justify-center shrink-0">
+                    <Icon className="h-4 w-4 text-green-400/70" />
+                  </div>
+                  <h3 className="text-sm font-semibold">{title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {body}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
         </section>
 
@@ -892,10 +704,10 @@ export default function WpVsHardcodedClient() {
           >
             <motion.div variants={fadeUp} className="mb-12">
               <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mb-2">
-                06 — So Which Should You Build?
+                06 — So Should You Use One?
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                It's About the Time Horizon
+                Prototype With AI, Ship for Search
               </h2>
             </motion.div>
 
@@ -904,9 +716,9 @@ export default function WpVsHardcodedClient() {
               className="space-y-5 text-muted-foreground leading-relaxed max-w-2xl mb-12"
             >
               <p className="text-lg text-foreground/90">
-                This was never about WordPress being "bad." It's about matching
-                the tool to how long the site has to live and how much it has to
-                carry.
+                This was never about AI builders being "bad." It's about matching
+                the tool to the job — and being clear-eyed about whether that job
+                depends on search.
               </p>
             </motion.div>
 
@@ -920,14 +732,16 @@ export default function WpVsHardcodedClient() {
               >
                 <div className="flex items-center gap-3">
                   <Clock className="h-5 w-5 text-blue-400/60" />
-                  <h3 className="text-lg font-semibold">Reach for WordPress when…</h3>
+                  <h3 className="text-lg font-semibold">
+                    Reach for an AI builder when…
+                  </h3>
                 </div>
                 <ul className="space-y-2.5">
                   {[
-                    "You need to be online today on a shoestring budget.",
-                    "It's a simple blog or brochure site, content-only.",
-                    "A non-technical owner must self-manage from day one.",
-                    "It's a short-lived campaign, MVP, or throwaway.",
+                    "You're prototyping or need a demo today.",
+                    "It's an internal tool or app behind a login.",
+                    "You're validating an MVP before investing more.",
+                    "Organic search genuinely doesn't matter here.",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-blue-400/50 mt-0.5 shrink-0" />
@@ -948,14 +762,14 @@ export default function WpVsHardcodedClient() {
               >
                 <div className="flex items-center gap-3">
                   <Scale className="h-5 w-5 text-green-400/60" />
-                  <h3 className="text-lg font-semibold">Go hardcoded when…</h3>
+                  <h3 className="text-lg font-semibold">Build for search when…</h3>
                 </div>
                 <ul className="space-y-2.5">
                   {[
-                    "The site is core to the business, built to last years.",
-                    "Speed and SEO directly drive leads or revenue.",
-                    "You need custom features the ecosystem can't provide.",
-                    "You're planning to scale, and want to own what you build.",
+                    "The site has to rank and drive leads or revenue.",
+                    "You need full control over content and metadata.",
+                    "Server-rendered, crawlable pages are non-negotiable.",
+                    "It's a long-lived business asset, not a throwaway.",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-green-400/60 mt-0.5 shrink-0" />
@@ -976,22 +790,23 @@ export default function WpVsHardcodedClient() {
               className="space-y-5 text-muted-foreground leading-relaxed max-w-2xl mt-12"
             >
               <p>
-                For most serious businesses, the honest answer is a hardcoded
-                build paired with a custom or headless CMS — the speed and
-                ownership of custom code, with the editing freedom that made
-                WordPress appealing in the first place. You get the sprint{" "}
-                <span className="text-foreground/80">and</span> the marathon.
+                For most serious businesses, the honest answer is to use AI
+                builders for what they're brilliant at — moving fast — then
+                graduate the SEO-critical work onto a real framework, where
+                rendering, metadata, and structured data are yours to control. You
+                get the speed <span className="text-foreground/80">and</span> the
+                search.
               </p>
               <p>
-                That's exactly the migration I ran for{" "}
+                It's the same lesson as the{" "}
                 <Link
-                  href="/blog/acro-refrigeration"
+                  href="/blog/wordpress-vs-hardcoded"
                   className="text-foreground/90 underline decoration-border/50 underline-offset-4 hover:decoration-foreground/60 transition-colors"
                 >
-                  Acro Refrigeration
+                  WordPress vs. hardcoded
                 </Link>{" "}
-                — off a slow WordPress site and onto a custom Next.js platform,
-                for a ~10x speed boost with zero rankings lost.
+                debate: convenience up front, control over the long run — and for
+                anything that has to be found, control wins.
               </p>
             </motion.div>
           </motion.div>
@@ -1019,7 +834,7 @@ export default function WpVsHardcodedClient() {
                 07 — People Also Ask
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-                WordPress vs. Code: Quick Answers
+                AI, Builders & SEO: Quick Answers
               </h2>
             </motion.div>
 
@@ -1027,7 +842,7 @@ export default function WpVsHardcodedClient() {
               variants={stagger}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.08 }}
               className="space-y-4"
             >
               {FAQS.map(({ q, a }) => (
@@ -1063,12 +878,12 @@ export default function WpVsHardcodedClient() {
             className="bg-card/40 border border-border/20 rounded-xl p-8 sm:p-12 text-center space-y-4"
           >
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-              Outgrowing your WordPress site?
+              Prototyped in an AI builder — and now it needs to rank?
             </h2>
             <p className="text-muted-foreground max-w-md mx-auto">
-              If the maintenance, the slowness, or the ceiling is starting to
-              cost you — let's talk about what a hardcoded rebuild could do for
-              your business.
+              If your AI-built site looks great but can't be found, let's talk
+              about turning it into a fast, crawlable platform search engines and
+              AI assistants actually surface.
             </p>
             <div className="flex flex-wrap justify-center gap-4 pt-2">
               <Link
@@ -1078,10 +893,10 @@ export default function WpVsHardcodedClient() {
                 Get in Touch
               </Link>
               <Link
-                href="/blog/acro-refrigeration"
+                href="/blog/wordpress-vs-hardcoded"
                 className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium rounded-md border border-border/40 text-foreground/80 hover:text-foreground hover:border-border/60 transition-all"
               >
-                Read the Acro Case Study →
+                Read: WordPress vs. Hardcoded →
               </Link>
             </div>
           </motion.div>

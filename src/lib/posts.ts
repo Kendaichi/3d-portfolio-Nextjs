@@ -33,6 +33,18 @@ export interface BlogPost {
 // 2026). Replace them with the real publish dates when you have them.
 const posts: BlogPost[] = [
   {
+    slug: "ai-website-builders-seo",
+    featured: true,
+    title: "AI Website Builders & SEO",
+    subtitle: "Where Tools Like Lovable Win — and Where They Quietly Cost You Rankings",
+    date: "2026-07-27",
+    type: "Insight",
+    cta: "Read the Breakdown",
+    tags: ["AI Builders", "Lovable", "SEO", "AI Content", "Web Architecture"],
+    preview:
+      "AI website builders like Lovable, Bolt, and v0 ship a UI in minutes — but client-rendered SPAs, thin metadata, and no structured data quietly cost you rankings. Where AI builders and AI-generated content help SEO, where they hurt, and whether SEO is dead or just evolving in 2026.",
+  },
+  {
     slug: "wp2shell-wordpress-core-rce",
     featured: true,
     title: "wp2shell: No Plugin, No Login, No Excuse",

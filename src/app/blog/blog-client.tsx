@@ -57,6 +57,7 @@ const PRESENTATION: Record<
     rot: -2,
   },
   "wordpress-vs-hardcoded": { variant: "index", rot: 2.5 },
+  "ai-website-builders-seo": { variant: "index", rot: -2.5 },
   "wp2shell-wordpress-core-rce": {
     variant: "polaroid",
     image: "/assets/wordpress-core/wordpress-core.webp",
