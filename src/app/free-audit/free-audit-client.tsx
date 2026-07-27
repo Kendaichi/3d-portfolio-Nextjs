@@ -7,6 +7,7 @@ import {
   Search,
   ShieldCheck,
   PenLine,
+  MonitorSmartphone,
   AlertTriangle,
   CheckCircle2,
   HelpCircle,
@@ -93,26 +94,25 @@ export default function FreeAuditClient() {
               variants={fadeUp}
               className="text-xs sm:text-sm font-mono tracking-widest uppercase text-muted-foreground mb-5"
             >
-              For slow WordPress sites
+              For slow, outdated WordPress sites
             </motion.p>
 
             <motion.h1
               variants={fadeUp}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08] mb-6 max-w-3xl"
             >
-              Your WordPress Site Is Slow — and{" "}
-              <span className="text-gradient">Google Is Quietly Punishing You</span>{" "}
-              for It.
+              Your WordPress Site Is Slow, Outdated, and{" "}
+              <span className="text-gradient">Quietly Costing You Customers</span>.
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
               className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10"
             >
-              Every second your site takes to load, visitors leave and your
-              ranking drops. I rebuild slow WordPress sites into fast,
-              custom-coded sites that load instantly and climb back up the search
-              results.
+              A slow, dated site makes visitors leave and drags your Google
+              ranking down. I rebuild tired WordPress sites into fast, modern,
+              custom-coded sites that load instantly, look current on every
+              device, and climb back up the search results.
             </motion.p>
 
             <motion.div variants={fadeUp}>
@@ -183,6 +183,7 @@ export default function FreeAuditClient() {
               {[
                 "Pages that take 4, 5, 6 seconds to load — and visitors gone before they finish loading.",
                 "A stack of plugins you're scared to update because something always breaks.",
+                "A design that looks stuck in the past — and clunky or broken on a phone, where most of your visitors actually are.",
                 "Rankings that keep slipping while faster competitors climb past you.",
                 'A site that "worked fine" three years ago and now feels like a liability.',
               ].map((item) => (
@@ -227,15 +228,17 @@ export default function FreeAuditClient() {
                 variants={fadeUp}
                 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 max-w-2xl"
               >
-                I rebuild slow WordPress sites as fast, custom-coded sites.
+                I rebuild slow, outdated WordPress sites as fast, modern,
+                custom-coded sites.
               </motion.h2>
               <motion.p
                 variants={fadeUp}
                 className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-12"
               >
                 Instead of a pile of plugins fighting each other, you get a site
-                engineered to load instantly, rank well, and stay out of your way.
-                Same content, same brand — just built properly underneath.
+                engineered to load instantly, look current, rank well, and stay
+                out of your way. Same brand, sharper — just built properly
+                underneath.
               </motion.p>
 
               <motion.p
@@ -251,6 +254,11 @@ export default function FreeAuditClient() {
                     icon: Zap,
                     title: "Loads in under a second",
                     body: "Visitors stay instead of bouncing.",
+                  },
+                  {
+                    icon: MonitorSmartphone,
+                    title: "Modern & mobile-first",
+                    body: "Looks current, not stuck in 2015 — and works flawlessly on every phone and screen.",
                   },
                   {
                     icon: Search,
@@ -370,7 +378,7 @@ export default function FreeAuditClient() {
                 {
                   step: "1",
                   title: "Free audit call (15 min)",
-                  body: "I look at your current site and show you exactly what's slowing it down and costing you rankings.",
+                  body: "I look at your current site and show you exactly what's slowing it down, where it looks dated, and how it's costing you rankings and customers.",
                 },
                 {
                   step: "2",
@@ -455,7 +463,7 @@ export default function FreeAuditClient() {
                 variants={fadeUp}
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-5"
               >
-                Stop losing customers to a slow site.
+                Stop losing customers to a slow, outdated site.
               </motion.h2>
               <motion.p
                 variants={fadeUp}

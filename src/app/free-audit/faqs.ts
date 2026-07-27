@@ -28,6 +28,6 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "What if I just want to know what's wrong?",
-    a: "That's exactly what the free audit is for. You'll see what's slowing your site down and costing you rankings, with no obligation to hire me.",
+    a: "That's exactly what the free audit is for. You'll see what's slowing your site down, where it looks dated, and how it's costing you rankings — with no obligation to hire me.",
   },
 ];
