@@ -33,6 +33,17 @@ export interface BlogPost {
 // 2026). Replace them with the real publish dates when you have them.
 const posts: BlogPost[] = [
   {
+    slug: "website-vs-social-media",
+    title: "Website vs. Social Media",
+    subtitle: "Why You Still Own the Argument — and the Audience",
+    date: "2026-07-31",
+    type: "Insight",
+    cta: "Read the Breakdown",
+    tags: ["Website", "Social Media", "Small Business", "SEO", "Field Notes"],
+    preview:
+      "Social media rents you an audience; a website is the one you own. The honest difference between the two, whether social media is 'enough,' the 5 advantages of a website, the real disadvantages and red flags, and why you still need a website in 2026.",
+  },
+  {
     slug: "ai-website-builders-seo",
     featured: true,
     title: "AI Website Builders & SEO",
