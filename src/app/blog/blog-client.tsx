@@ -1,10 +1,22 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
-import { BLOG_POSTS } from "@/lib/posts";
+import { BLOG_POSTS, type PostType } from "@/lib/posts";
+
+/* Filter chips derive their categories from the posts themselves, so a new
+   post type (or an emptied one) updates the bar automatically. `All` is always
+   first; the rest follow this preferred order when present. */
+type Filter = "All" | PostType;
+const TYPE_ORDER: PostType[] = ["Case Study", "Insight", "Results"];
+const TYPE_LABEL: Record<PostType, string> = {
+  "Case Study": "Case Studies",
+  Insight: "Insights",
+  Results: "Results",
+};
 
 const stagger: Variants = {
   hidden: {},
@@ -111,19 +123,42 @@ function CardMeta({ date, type }: { date: string; type: string }) {
 
 /* ── main page ──────────────────────────────────────────────── */
 export default function BlogClient() {
-  const decorated = BLOG_POSTS.map((post, i) => {
-    const pres = PRESENTATION[post.slug] ?? {};
-    return {
-      post,
-      pres,
-      variant: (pres.variant ?? "index") as Variant,
-      rot: pres.rot ?? fallbackRot(post.slug),
-      pin: PIN_COLORS[i % PIN_COLORS.length],
-    };
-  });
+  const [filter, setFilter] = useState<Filter>("All");
 
-  const pinned = decorated.filter((d) => d.post.featured);
-  const notes = decorated.filter((d) => !d.post.featured);
+  const decorated = useMemo(
+    () =>
+      BLOG_POSTS.map((post, i) => {
+        const pres = PRESENTATION[post.slug] ?? {};
+        return {
+          post,
+          pres,
+          variant: (pres.variant ?? "index") as Variant,
+          rot: pres.rot ?? fallbackRot(post.slug),
+          pin: PIN_COLORS[i % PIN_COLORS.length],
+        };
+      }),
+    []
+  );
+
+  // Count per type, then build the chip list (All + only types that exist).
+  const counts = useMemo(() => {
+    const c: Record<string, number> = { All: decorated.length };
+    for (const { post } of decorated) c[post.type] = (c[post.type] ?? 0) + 1;
+    return c;
+  }, [decorated]);
+
+  const filters: Filter[] = useMemo(
+    () => ["All", ...TYPE_ORDER.filter((t) => counts[t])],
+    [counts]
+  );
+
+  // "All" keeps the curated pinned row + the non-featured masonry below it.
+  // Any specific type collapses to a single masonry of every post of that type.
+  const isAll = filter === "All";
+  const pinned = isAll ? decorated.filter((d) => d.post.featured) : [];
+  const notes = isAll
+    ? decorated.filter((d) => !d.post.featured)
+    : decorated.filter((d) => d.post.type === filter);
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
@@ -177,6 +212,38 @@ export default function BlogClient() {
             Deep dives into real projects — the problems, the process, and the results.
           </motion.p>
         </motion.div>
+
+        {/* ── Filter bar ── */}
+        <div className="container max-w-5xl pb-12">
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filter posts by type">
+            {filters.map((f) => {
+              const active = filter === f;
+              const label = f === "All" ? "All" : TYPE_LABEL[f];
+              return (
+                <button
+                  key={f}
+                  type="button"
+                  onClick={() => setFilter(f)}
+                  aria-pressed={active}
+                  className={`inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-mono rounded-full border transition-colors ${
+                    active
+                      ? "bg-foreground text-background border-transparent"
+                      : "bg-accent/40 text-muted-foreground border-border/30 hover:text-foreground hover:border-border/60"
+                  }`}
+                >
+                  {label}
+                  <span
+                    className={`text-[10px] tabular-nums ${
+                      active ? "text-background/60" : "text-muted-foreground/50"
+                    }`}
+                  >
+                    {counts[f]}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
         {/* ── Pinned to the board ── */}
         {pinned.length > 0 && (
@@ -236,13 +303,18 @@ export default function BlogClient() {
         {/* ── All notes (masonry) ── */}
         <div className="container max-w-5xl pb-24">
           <div className="flex items-baseline gap-3 mb-8">
-            <h2 className="text-xl font-bold tracking-tight">All notes</h2>
+            <h2 className="text-xl font-bold tracking-tight">
+              {isAll ? "All notes" : TYPE_LABEL[filter]}
+            </h2>
             <span className="text-sm font-mono text-muted-foreground">
-              — scattered, not sorted
+              {isAll
+                ? "— scattered, not sorted"
+                : `— ${notes.length} ${notes.length === 1 ? "post" : "posts"}`}
             </span>
           </div>
 
           <div
+            key={filter}
             className="columns-1 sm:columns-2 lg:columns-3"
             style={{ columnGap: "2rem" }}
           >

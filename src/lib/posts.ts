@@ -33,6 +33,18 @@ export interface BlogPost {
 // 2026). Replace them with the real publish dates when you have them.
 const posts: BlogPost[] = [
   {
+    slug: "guardion",
+    title: "Guardion",
+    subtitle:
+      "Building an Elite Protection Brand From the Ground Up — in One Week",
+    date: "2026-08-04",
+    type: "Case Study",
+    cta: "Read Case Study",
+    tags: ["Next.js", "Supabase", "Vercel", "Bilingual", "SEO"],
+    preview:
+      "A referral client — an elite Australian close-protection and investigations firm — had a world-class operation but a thin starter site. I rebuilt it on the proven Acro stack: bilingual English/Chinese, SEO-first, and shipped in one week, taking PageSpeed from 75 to a perfect 100 across every Lighthouse category.",
+  },
+  {
     slug: "how-to-set-up-seo",
     title: "How to Set Up SEO",
     subtitle: "A Channel-by-Channel Setup, From Your Website Out",
