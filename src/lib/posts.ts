@@ -45,6 +45,19 @@ const posts: BlogPost[] = [
       "A referral client — an elite Australian close-protection and investigations firm — had a world-class operation but a thin starter site. I rebuilt it on the proven Acro stack: bilingual English/Chinese, SEO-first, and shipped in one week, taking PageSpeed from 75 to a perfect 100 across every Lighthouse category.",
   },
   {
+    slug: "framer-ai-vs-custom-coded",
+    featured: true,
+    title: "Framer AI vs. Custom-Coded",
+    subtitle:
+      "Where Framer AI Wins, Where It Quietly Costs You — and How to Tell a Custom Site From a Template",
+    date: "2026-08-04",
+    type: "Insight",
+    cta: "Read the Breakdown",
+    tags: ["Framer", "AI Builders", "SEO", "Custom Code", "Web Architecture"],
+    preview:
+      "Framer AI ships a beautiful site in minutes — and it's genuinely good. But is it good for SEO, and what are you actually paying for versus a custom build? An honest take: where Framer wins, where it hits a ceiling, what no platform will do for you, how to tell a custom site from a template, and Framer vs. WordPress vs. custom-coded.",
+  },
+  {
     slug: "how-to-set-up-seo",
     title: "How to Set Up SEO",
     subtitle: "A Channel-by-Channel Setup, From Your Website Out",
@@ -123,7 +136,6 @@ const posts: BlogPost[] = [
   },
   {
     slug: "hvacr-group",
-    featured: true,
     title: "One Client, Four Websites",
     subtitle: "How the Acro Rebuild Became a Whole Brand Family",
     date: "2026-05-20",
