@@ -73,6 +73,7 @@ const PRESENTATION: Record<
   "framer-ai-vs-custom-coded": { variant: "index", rot: -2 },
   "website-vs-social-media": { variant: "index", rot: 1.5 },
   "how-to-set-up-seo": { variant: "index", rot: -1.5 },
+  "how-to-set-up-seo-for-a-website": { variant: "index", rot: 2 },
   "wp2shell-wordpress-core-rce": {
     variant: "polaroid",
     image: "/assets/wordpress-core/wordpress-core.webp",

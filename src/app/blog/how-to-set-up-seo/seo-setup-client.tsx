@@ -409,6 +409,24 @@ export default function SeoSetupClient() {
                 </div>
               </StickyNote>
             </motion.div>
+
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="text-sm text-muted-foreground/70 leading-relaxed max-w-2xl mt-8"
+            >
+              Want the website layer in full — every tag, canonical, schema, and
+              Core Web Vital, step by step? See{" "}
+              <Link
+                href="/blog/how-to-set-up-seo-for-a-website"
+                className="text-foreground/90 underline decoration-border/50 underline-offset-4 hover:decoration-foreground/60 transition-colors"
+              >
+                how to set up SEO for a website
+              </Link>
+              .
+            </motion.p>
           </motion.div>
         </section>
 

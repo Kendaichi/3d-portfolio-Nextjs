@@ -33,6 +33,17 @@ export interface BlogPost {
 // 2026). Replace them with the real publish dates when you have them.
 const posts: BlogPost[] = [
   {
+    slug: "how-to-set-up-seo-for-a-website",
+    title: "How to Set Up SEO for a Website",
+    subtitle: "The On-Site Setup, Step by Step — Technical & On-Page",
+    date: "2026-08-10",
+    type: "Insight",
+    cta: "Read the Checklist",
+    tags: ["SEO", "Technical SEO", "On-Page SEO", "Core Web Vitals", "Search Console"],
+    preview:
+      "The exact on-site SEO setup I run on every website I build — mapping keywords to pages, crawlable HTML, title tags and meta descriptions, headings, clean URLs, canonical tags, schema, Core Web Vitals, and getting indexed in Google Search Console. A developer's step-by-step website checklist, plus the 'People also ask' answers.",
+  },
+  {
     slug: "guardion",
     title: "Guardion",
     subtitle:

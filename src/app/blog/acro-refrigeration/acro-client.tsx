@@ -823,6 +823,17 @@ export default function AcroClient() {
                 architecture, the site is now positioned to rank even higher
                 than before.
               </p>
+              <p>
+                And it did: ninety days after launch, traffic had doubled and
+                the rankings kept climbing —{" "}
+                <Link
+                  href="/blog/acro-refrigeration-90-days"
+                  className="text-foreground/90 underline decoration-border/50 underline-offset-4 hover:decoration-foreground/60 transition-colors"
+                >
+                  see the 90-day results
+                </Link>
+                .
+              </p>
             </motion.div>
 
             {/* ── Checklist — final scrapbook element ── */}

@@ -841,6 +841,17 @@ export default function GuardionClient() {
                 follow-up is coming next quarter, the same way the Acro story
                 earned its &quot;90 Days Later&quot; sequel.
               </p>
+              <p>
+                Shipping something this complete on a one-week clock isn&apos;t a
+                fluke, either — it&apos;s a system. I once built{" "}
+                <Link
+                  href="/blog/two-sites-three-days"
+                  className="text-foreground/90 underline decoration-border/50 underline-offset-4 hover:decoration-foreground/60 transition-colors"
+                >
+                  two distinct brands in 72 hours
+                </Link>{" "}
+                the same way.
+              </p>
             </motion.div>
 
             {/* ── Checklist — final scrapbook element ── */}

@@ -993,6 +993,18 @@ export default function WpVsHardcodedClient() {
                 — off a slow WordPress site and onto a custom Next.js platform,
                 for a ~10x speed boost with zero rankings lost.
               </p>
+              <p>
+                There's a security dimension to it, too: because so many sites
+                share the same core and plugins, a single WordPress-core flaw
+                can expose every one of them at the same instant — as the{" "}
+                <Link
+                  href="/blog/wp2shell-wordpress-core-rce"
+                  className="text-foreground/90 underline decoration-border/50 underline-offset-4 hover:decoration-foreground/60 transition-colors"
+                >
+                  pre-auth RCE in WordPress core
+                </Link>{" "}
+                made painfully clear.
+              </p>
             </motion.div>
           </motion.div>
         </section>

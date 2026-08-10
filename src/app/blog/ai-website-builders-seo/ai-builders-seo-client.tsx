@@ -798,6 +798,18 @@ export default function AiBuildersSeoClient() {
                 search.
               </p>
               <p>
+                Framer sits at the polished end of that same spectrum —
+                genuinely good, until the SEO stakes get serious. I mapped out
+                exactly where it wins and where it hits a ceiling in{" "}
+                <Link
+                  href="/blog/framer-ai-vs-custom-coded"
+                  className="text-foreground/90 underline decoration-border/50 underline-offset-4 hover:decoration-foreground/60 transition-colors"
+                >
+                  Framer AI vs. custom-coded
+                </Link>
+                .
+              </p>
+              <p>
                 It's the same lesson as the{" "}
                 <Link
                   href="/blog/wordpress-vs-hardcoded"

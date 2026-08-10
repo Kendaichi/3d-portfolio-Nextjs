@@ -12,8 +12,8 @@ export interface FaqItem {
 // beginners", each with a concise ~45–60 word answer drawn from this post.
 export const FAQS: FaqItem[] = [
   {
-    q: "How do I set up SEO for my website?",
-    a: "Start with the foundation: make sure your site is crawlable (server-rendered HTML), give every page a unique title tag and meta description, use one clear H1 and logical headings, target real keywords in genuinely useful content, add an XML sitemap and robots.txt, then submit the site to Google Search Console so Google can find and index it.",
+    q: "How do I set up SEO for my business?",
+    a: "Work outward from your website. Get the site technically sound and its pages optimized first, then claim your Google Business Profile, make your social and LinkedIn profiles consistent and keyword-rich, add relevant directories, and keep everything pointing back to your site. Do them in that order so each channel reinforces the last instead of scattering your effort.",
   },
   {
     q: "How do I start SEO for beginners?",
